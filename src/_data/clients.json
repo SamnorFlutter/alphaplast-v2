@@ -1,0 +1,16 @@
+{
+  "_comment": "Real clients only: confirmed by product photos supplied by the customer or by scanned thank-you letters. Logos are NOT shown until written consent (TZ). Reviews need initials + position — none approved yet, so none rendered.",
+  "items": [
+    { "name": "Yandex Market", "niche": "delivery", "work": "yandex-market", "source": "photo" },
+    { "name": "UZPOST", "niche": "delivery", "work": "uzpost", "source": "photo" },
+    { "name": "EMU Express Mail Universal", "niche": "delivery", "work": "emu", "source": "photo" },
+    { "name": "Uzum Market", "niche": "delivery", "work": null, "source": "letter", "letter": "assets/cert-thanks-3.png", "letter_pdf": "assets/cert-thanks-3.pdf", "letter_note": { "ru": "Благодарственное письмо за качество производства полиэтиленовых пакетов, 2025", "uz": "Polietilen paketlar ishlab chiqarish sifati uchun minnatdorlik xati, 2025" } },
+    { "name": "RISUS Dental Clinic Center", "niche": "pharmacy", "work": "risus", "source": "photo" },
+    { "name": "Bread Samarkand (Duty Free)", "niche": "grocery", "work": "bread-samarkand", "source": "photo" },
+    { "name": "Donar", "niche": "grocery", "work": "donar", "source": "photo" },
+    { "name": "Uzbechka", "niche": "grocery", "work": "donar", "source": "photo" },
+    { "name": "Saia café & bakery", "niche": "horeca", "work": null, "source": "letter", "letter": "assets/cert-thanks-1.png", "letter_pdf": "assets/cert-thanks-1.pdf", "letter_note": { "ru": "Благодарность за сотрудничество и соблюдение сроков поставок, 2025", "uz": "Hamkorlik va yetkazib berish muddatlariga rioya qilgani uchun minnatdorlik, 2025" } },
+    { "name": "Skechers Performance", "niche": "clothing", "work": "skechers", "source": "photo" },
+    { "name": "Panda toys", "niche": "retail", "work": "panda-toys", "source": "photo" }
+  ]
+}

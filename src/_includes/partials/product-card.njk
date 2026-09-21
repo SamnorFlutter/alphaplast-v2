@@ -1,0 +1,25 @@
+{# expects: p (product) #}
+{%- set pf = p | priceFrom(pricing, bestsellers.items) -%}
+{%- set pmin = p.defaultSpec | minPcs(cfg.min_order_kg) -%}
+{%- set pw = p.defaultSpec | bagWeight -%}
+<article class="glass card product-card reveal" data-product="{{ p.slug }}" data-type="{{ p.type }}" data-apps="{{ p.applications | join(',') }}" data-niches="{{ p.niches | join(',') }}" data-load="{{ p.load }}" data-food="{{ '1' if p.food else '0' }}" data-print-max="{{ p.print_max }}" data-min="{{ pmin }}" data-weight="{{ pw }}" data-name="{{ p.name | tr(lang) }}">
+  <a class="card-media photo {% if p.placeholder %}is-placeholder{% endif %}" href="{{ (L + '/product/' + p.slug + '/') | url }}">
+    {% if p.images.length %}<img src="{{ ('/' + p.images[0].src) | url }}" alt="{{ p.images[0].alt | tr(lang) }}" loading="lazy" width="600" height="600">{% else %}<svg class="ph" viewBox="0 0 120 120" aria-hidden="true"><rect x="28" y="30" width="64" height="76" rx="8" fill="none" stroke="currentColor" stroke-width="3"/><path d="M44 30v-6a16 16 0 0 1 32 0v6" fill="none" stroke="currentColor" stroke-width="3"/></svg><span class="ph-note">{{ T.product.placeholder }}</span>{% endif %}
+    {% if p.bestseller %}<span class="badge badge-red">{{ T.product.bestseller }}</span>{% endif %}
+    {% if p.food %}<span class="badge badge-ok">{{ T.product.food_yes }}</span>{% endif %}
+  </a>
+  <div class="card-body">
+    <h3><a href="{{ (L + '/product/' + p.slug + '/') | url }}">{{ p.name | tr(lang) }}</a></h3>
+    <p class="muted">{{ p.short | tr(lang) }}</p>
+    <dl class="specs">
+      <div><dt>{{ T.catalog.size }}</dt><dd>{% if p.form == 'film' %}{{ p.defaultSpec.width }} {{ T.calc.cm }}{% else %}{{ p.defaultSpec.width }}×{{ p.defaultSpec.height }} {{ T.calc.cm }}{% endif %}</dd></div>
+      <div><dt>{{ T.catalog.thickness }}</dt><dd>{{ p.defaultSpec.thickness }} {{ T.calc.um }}</dd></div>
+      <div><dt>{{ T.catalog.min }}</dt><dd><span data-min-label>{{ pmin | num }}</span> {{ 'м' if (p.unit == 'm' and lang == 'ru') else ('m' if p.unit == 'm' else T.calc.pcs) }}</dd></div>
+    </dl>
+    <div class="card-foot">
+      <div class="price"><span class="from">{{ T.catalog.from }}</span> <b>{{ pf.price | num }}</b> <span class="unit">{{ T.catalog.per_pc if p.unit != 'm' else T.calc.unit + '/m' }}</span>{% if cfg.demo_mode %}<span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</div>
+      <a class="btn btn-glass btn-sm" href="{{ (L + '/product/' + p.slug + '/') | url }}">{{ T.cta.more }}</a>
+    </div>
+    <div class="card-qty muted" data-qty-note hidden></div>
+  </div>
+</article>

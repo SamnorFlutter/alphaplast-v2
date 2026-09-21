@@ -1,0 +1,35 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/account/"
+layout: base.njk
+noindex: true
+eleventyComputed:
+  seoTitle: "{{ pages.account.seo_title[lang] }} — Alpha Plast"
+  seoDesc: "{{ pages.account.intro[lang] }}"
+---
+{%- set A = pages.account -%}
+<section class="section page-head">
+  <div class="container narrow">
+    {% set crumbs = [{ "name": T.nav.account, "url": L + "/account/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ A.h1 | tr(lang) }}</h1>
+    <p class="sub">{{ A.intro | tr(lang) }}</p>
+    <a class="btn btn-primary btn-lg" href="https://t.me/{{ cfg.telegram_login_bot }}?start=login" rel="noopener" data-event="tg_login"><svg class="ic"><use href="#i-tg"/></svg>{{ T.cta.login }}</a>
+    <p class="muted small">{{ A.demo_note | tr(lang) }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <h2>{{ A.steps_title | tr(lang) }}</h2>
+    <ol class="steps">{% for s in A.steps %}<li class="glass step reveal"><span class="step-n">{{ loop.index }}</span><span>{{ s | tr(lang) }}</span></li>{% endfor %}</ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow grid grid-2">
+    <div class="glass tile"><span class="tile-title">{{ A.benefits_title | tr(lang) }}</span><ul class="list">{% for b in A.benefits %}<li>{{ b | tr(lang) }}</li>{% endfor %}</ul></div>
+    <div class="glass tile"><span class="tile-title">{{ A.guest_title | tr(lang) }}</span><span class="tile-desc">{{ A.guest_text | tr(lang) }}</span><a class="btn btn-glass btn-sm" href="{{ (L + '/order/') | url }}">{{ T.cta.order }}</a></div>
+  </div>
+</section>

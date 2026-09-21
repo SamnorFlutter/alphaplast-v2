@@ -1,0 +1,34 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/calculator/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ T.calc.title }} — {{ T.common.min_order }} 200 {{ T.calc.kg }} | Alpha Plast"
+  seoDesc: "{{ T.calc.sub }}"
+---
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.calculator, "url": L + "/calculator/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ T.calc.title }}</h1>
+    <p class="sub">{{ T.calc.sub }}</p>
+    <p class="min-line"><svg class="ic"><use href="#i-scale"/></svg>{{ T.hero.min_line }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    {% set compact = false %}{% include "partials/calc.njk" %}
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>{{ T.bestsellers.title }}</h2>
+    <p class="sub">{{ T.calc.exact_hint }} — {{ T.bestsellers.sub }}</p>
+    <div class="grid grid-4 bs-grid">
+      {% for b in bestsellers.items | where('active', true) | sortBy('order') %}{% include "partials/bestseller-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>

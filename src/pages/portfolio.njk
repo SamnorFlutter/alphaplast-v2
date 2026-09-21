@@ -1,0 +1,49 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/portfolio/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ T.portfolio.title }} — {{ T.hero.kicker }} | Alpha Plast"
+  seoDesc: "{{ T.portfolio.sub }}"
+---
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.portfolio, "url": L + "/portfolio/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ T.portfolio.title }}</h1>
+    <p class="sub">{{ T.portfolio.sub }}</p>
+  </div>
+</section>
+{% for ind, label in T.portfolio.industries %}{% set ws = portfolio.items | where('industry', ind) %}{% if ws.length %}
+<section class="section">
+  <div class="container">
+    <h2 id="ind-{{ ind }}">{{ label }}</h2>
+    <div class="grid grid-3 works">
+      {% for w in ws %}{% set wp = products.items | find('slug', w.product) %}
+      <article class="glass card work-card reveal" id="{{ w.id }}">
+        <a class="card-media photo" href="{{ (L + '/product/' + w.product + '/') | url }}"><img src="{{ ('/' + w.image) | url }}" alt="{{ w.alt | tr(lang) }}" loading="lazy" width="600" height="600"></a>
+        <div class="card-body">
+          <h3>{{ w.client }}</h3>
+          <dl class="specs">
+            <div><dt>{{ T.portfolio.type }}</dt><dd><a href="{{ (L + '/product/' + w.product + '/') | url }}">{{ wp.name | tr(lang) }}</a></dd></div>
+            <div><dt>{{ T.portfolio.print }}</dt><dd>{{ w.colors }} {{ T.portfolio.colors }}, {{ T.calc.base_opts[w.base] | lower }}</dd></div>
+            <div><dt>{{ T.portfolio.size }}</dt><dd>{{ (w.size) if w.size else T.portfolio.size_na }}</dd></div>
+            <div><dt>{{ T.portfolio.qty }}</dt><dd>{{ (w.qty | num) if w.qty else T.portfolio.qty_na }}</dd></div>
+          </dl>
+          {% set wspec = { "type": w.calc.type, "form": wp.form, "width": wp.defaultSpec.width, "height": wp.defaultSpec.height, "bottom": wp.defaultSpec.bottom, "length": wp.defaultSpec.length, "thickness": wp.defaultSpec.thickness, "material": wp.defaultSpec.material, "base": w.calc.base, "colors": w.calc.colors, "sides": 1 } %}
+          <a class="btn btn-primary btn-sm" href="{{ (L + '/calculator/') | url }}?{{ wspec | specQuery(wspec | minPcs(cfg.min_order_kg)) }}" data-event="want_this">{{ T.cta.want_same }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}{% endfor %}
+<section class="section">
+  <div class="container">
+    {% set formId = 'lead-portfolio' %}{% set presetSpec = '' %}{% set presetProduct = '' %}{% include "partials/lead-form.njk" %}
+  </div>
+</section>

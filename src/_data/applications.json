@@ -1,0 +1,8 @@
+[
+  { "key": "water", "label": { "ru": "Для воды", "uz": "Suv uchun" }, "desc": { "ru": "Паллеты с бутылками: стрейч-худ и стрейч-плёнка", "uz": "Shisha palletlari: streych-xud va streych plyonka" }, "icon": "drop" },
+  { "key": "food", "label": { "ru": "Для пищи", "uz": "Oziq-ovqat uchun" }, "desc": { "ru": "Фасовка, хлеб, рулонные пакеты с пищевым допуском", "uz": "Fasovka, non, oziq-ovqat ruxsatli rulonli paketlar" }, "icon": "bread" },
+  { "key": "clothing", "label": { "ru": "Для одежды", "uz": "Kiyim uchun" }, "desc": { "ru": "ПВД с вырубной и петлевой ручкой, плотная печать", "uz": "Kesilgan va ilmoqli dastali PVD, zich bosma" }, "icon": "shirt" },
+  { "key": "pharmacy", "label": { "ru": "Для аптеки", "uz": "Dorixona uchun" }, "desc": { "ru": "Небольшие пакеты с вырубной ручкой и 1–2 цвета", "uz": "Kesilgan dastali kichik paketlar, 1–2 rang" }, "icon": "cross" },
+  { "key": "delivery", "label": { "ru": "Для доставки", "uz": "Yetkazib berish uchun" }, "desc": { "ru": "Курьерские пакеты с клапаном, майки для e-commerce", "uz": "Klapanli kuryer paketlar, e-commerce uchun maykalar" }, "icon": "box" },
+  { "key": "construction", "label": { "ru": "Для стройматериалов", "uz": "Qurilish materiallari uchun" }, "desc": { "ru": "Рукав, стрейч-худ и мешки под тяжёлый груз", "uz": "Yeng, streych-xud va og'ir yuk uchun qoplar" }, "icon": "brick" }
+]

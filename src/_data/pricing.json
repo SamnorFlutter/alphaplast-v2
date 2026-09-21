@@ -1,0 +1,18 @@
+{
+  "_comment": "DEMO COEFFICIENTS. Replace in admin before launch; in production this file stays server-side only (TZ: коммерческая тайна). All money UZS.",
+  "demo": true,
+  "currency": "UZS",
+  "min_order_kg": 200,
+  "material_per_kg": { "PND": 28000, "PVD": 30000, "OPP": 38000, "SPP": 40000 },
+  "white_base_pct": 0.06,
+  "colored_base_pct": 0.10,
+  "print_per_color_per_pc": 45,
+  "two_sides_mult": 1.7,
+  "setup_per_color": 250000,
+  "margin_pct": 0.28,
+  "urgent_mult": 1.25,
+  "range_low_mult": 0.92,
+  "range_high_mult": 1.12,
+  "vat_default": 0.12,
+  "vat_rate": { "mchj": 0.12, "yatt": 0.12, "self": 0.12 }
+}

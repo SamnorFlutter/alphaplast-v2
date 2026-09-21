@@ -1,0 +1,57 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/catalog/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ T.catalog.title }} — Alpha Plast"
+  seoDesc: "{{ T.catalog.sub }}"
+---
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.catalog, "url": L + "/catalog/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ T.catalog.title }}</h1>
+    <p class="sub">{{ T.catalog.sub }}</p>
+    <div class="cat-chips">{% for c in categories.items %}<a class="glass chip" href="{{ (L + '/catalog/' + c.slug + '/') | url }}">{{ c.name | tr(lang) }}</a>{% endfor %}</div>
+  </div>
+</section>
+<section class="section catalog" data-catalog>
+  <div class="container catalog-grid">
+    <button type="button" class="btn btn-glass filter-open" data-filter-open><svg class="ic"><use href="#i-filter"/></svg>{{ T.cta.filters }} <span class="count-badge" data-found-badge></span></button>
+    <aside class="filter-wrap" data-filter-wrap>
+      <form class="glass filter" data-filter-form>
+        <div class="filter-head"><b>{{ T.catalog.filter }}</b><button type="button" class="pill filter-close" data-filter-close aria-label="{{ T.nav.close }}"><svg class="ic"><use href="#i-x"/></svg></button></div>
+        <fieldset><legend>{{ T.catalog.application }}</legend>
+          {% for a in applications %}<label class="check"><input type="checkbox" name="use" value="{{ a.key }}"><span>{{ a.label | tr(lang) }}</span></label>{% endfor %}
+        </fieldset>
+        <fieldset><legend>{{ T.catalog.type }}</legend>
+          {% for key, label in T.calc.bag_types %}<label class="check"><input type="checkbox" name="type" value="{{ key }}"><span>{{ label }}</span></label>{% endfor %}
+        </fieldset>
+        <fieldset><legend>{{ T.catalog.load }}</legend>
+          <label class="check"><input type="radio" name="load" value=""><span>{{ T.catalog.all_types }}</span></label>
+          {% for key, label in T.catalog.load_opts %}<label class="check"><input type="radio" name="load" value="{{ key }}"><span>{{ label }}</span></label>{% endfor %}
+        </fieldset>
+        <fieldset><legend>{{ T.catalog.qty }} <em class="muted" data-qty-kg></em></legend>
+          <div class="qty-row"><input type="number" name="qty" min="0" step="500" value="" inputmode="numeric" placeholder="10000"><input type="range" name="qtyRange" min="0" max="200000" step="500" value="0" aria-label="{{ T.catalog.qty }}"></div>
+          <small class="muted">{{ T.hero.min_line }}</small>
+        </fieldset>
+        <fieldset><legend>{{ T.catalog.print }}</legend>
+          <label class="check"><input type="radio" name="print" value=""><span>{{ T.catalog.all_types }}</span></label>
+          {% for key, label in T.catalog.print_opts %}<label class="check"><input type="radio" name="print" value="{{ key }}"><span>{{ label }}</span></label>{% endfor %}
+        </fieldset>
+        <fieldset><label class="check"><input type="checkbox" name="food" value="1"><span>{{ T.catalog.food }}</span></label><small class="muted" data-food-hint hidden>{{ T.catalog.food_hint }}</small></fieldset>
+        <div class="filter-actions"><button type="button" class="btn btn-glass btn-sm" data-filter-reset>{{ T.cta.reset }}</button><button type="button" class="btn btn-primary btn-sm filter-apply" data-filter-close>{{ T.cta.apply }} <span data-found-badge></span></button></div>
+      </form>
+    </aside>
+    <div class="catalog-results">
+      <div class="results-bar"><span>{{ T.catalog.found }}: <b data-found>{{ products.items.length }}</b> {{ T.catalog.positions }}</span><a class="muted small" href="{{ (L + '/calculator/') | url }}">{{ T.catalog.custom_calc }} →</a></div>
+      <div class="glass empty" data-empty hidden><b>{{ T.catalog.empty_title }}</b><p class="muted">{{ T.catalog.empty_text }}</p><a class="btn btn-primary btn-sm" href="{{ (L + '/calculator/') | url }}">{{ T.cta.calc }}</a><p class="muted small nearest-label">{{ T.catalog.nearest }}</p></div>
+      <div class="grid grid-3 products" data-products>
+        {% for p in products.items | sortBy('order') %}{% include "partials/product-card.njk" %}{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

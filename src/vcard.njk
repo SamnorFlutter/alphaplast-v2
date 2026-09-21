@@ -1,0 +1,17 @@
+---
+permalink: /contact.vcf
+eleventyExcludeFromCollections: true
+---
+BEGIN:VCARD
+VERSION:3.0
+N:;Alpha Plast;;;
+FN:Alpha Plast
+ORG:{{ company.legal_name }}
+{%- for ph in company.phones_raw %}
+TEL;TYPE=WORK,VOICE:{{ ph }}
+{%- endfor %}
+EMAIL;TYPE=WORK:{{ company.email }}
+URL:{{ cfg.base_url }}/ru/
+ADR;TYPE=WORK:;;{{ company.address_street.ru }};Tashkent;;;Uzbekistan
+NOTE:Telegram {{ company.telegram }}
+END:VCARD

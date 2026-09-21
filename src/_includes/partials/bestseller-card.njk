@@ -1,0 +1,24 @@
+{# expects: b (bestseller) #}
+{%- set bp = products.items | find('slug', b.product) -%}
+{%- set bmin = b.spec | minPcs(cfg.min_order_kg) -%}
+{%- set bw = b.spec | bagWeight -%}
+{%- set specQuery = 'type=' + b.spec.type + '&w=' + b.spec.width + '&h=' + b.spec.height + '&b=' + b.spec.bottom + '&t=' + b.spec.thickness + '&m=' + b.spec.material + '&base=' + b.spec.base + '&c=' + b.spec.colors + '&s=' + b.spec.sides + '&q=' + b.tiers[0].from + '&bs=' + b.slug -%}
+<article class="glass card bs-card reveal">
+  <a class="card-media photo" href="{{ (L + '/product/' + b.product + '/') | url }}"><img src="{{ ('/' + b.image) | url }}" alt="{{ bp.images[0].alt | tr(lang) if bp and bp.images.length else (b.name | tr(lang)) }}" loading="lazy" width="600" height="600"><span class="badge badge-red">{{ T.bestsellers.exact }}</span></a>
+  <div class="card-body">
+    <h3>{{ b.name | tr(lang) }}</h3>
+    <dl class="specs">
+      <div><dt>{{ T.calc.type }}</dt><dd>{{ T.calc.bag_types[b.spec.type] }}</dd></div>
+      <div><dt>{{ T.catalog.size }}</dt><dd>{{ b.spec.width }}×{{ b.spec.height }} {{ T.calc.cm }}, {{ b.spec.thickness }} {{ T.calc.um }}</dd></div>
+      <div><dt>{{ T.calc.material }}</dt><dd>{{ T.calc.materials[b.spec.material] }}, {{ T.calc.base_opts[b.spec.base] | lower }}</dd></div>
+      <div><dt>{{ T.calc.colors }}</dt><dd>{{ b.spec.colors }} · {{ T.calc.one_side if b.spec.sides == 1 else T.calc.two_sides }}</dd></div>
+      <div><dt>{{ T.calc.weight_pc }}</dt><dd>{{ bw }} {{ T.calc.g }}</dd></div>
+      <div><dt>{{ T.bestsellers.min }}</dt><dd>{{ bmin | num }} {{ T.calc.pcs }}</dd></div>
+    </dl>
+    <table class="table tiers"><thead><tr><th>{{ T.bestsellers.tiers }}</th><th>{{ T.bestsellers.per_pc }}</th></tr></thead><tbody>{% for t in b.tiers %}<tr><td>{{ T.bestsellers.from_qty }} {{ t.from | num }} {{ T.calc.pcs }}</td><td><b>{{ t.price | num }}</b>{% if cfg.demo_mode %} <span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</td></tr>{% endfor %}</tbody></table>
+    <div class="card-foot">
+      <a class="btn btn-primary" href="{{ (L + '/calculator/') | url }}?{{ specQuery }}" data-event="want_this" data-bs="{{ b.slug }}">{{ T.cta.want }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <span class="muted small">{{ T.bestsellers.lead }}: {{ T.bestsellers.lead_value }}</span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,36 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/blog/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ T.blog.title }} — Alpha Plast"
+  seoDesc: "{{ T.blog.sub }}"
+---
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.blog, "url": L + "/blog/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ T.blog.title }}</h1>
+    <p class="sub">{{ T.blog.sub }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3 posts">
+      {% for post in collections.posts | bylang(lang) %}
+      <a class="glass card post-card reveal" href="{{ post.url | url }}">
+        <span class="card-media photo">{% if post.data.cover %}<img src="{{ ('/' + post.data.cover) | url }}" alt="{{ post.data.title }}" loading="lazy" width="600" height="600">{% else %}<svg class="ph" viewBox="0 0 120 120" aria-hidden="true"><rect x="28" y="30" width="64" height="76" rx="8" fill="none" stroke="currentColor" stroke-width="3"/></svg>{% endif %}</span>
+        <span class="card-body">
+          <span class="muted small">{{ T.blog.categories[post.data.category] }} · <time datetime="{{ post.date | dateIso }}">{{ post.date | dateHuman(lang) }}</time></span>
+          <b>{{ post.data.title }}</b>
+          <span class="muted">{{ post.data.description }}</span>
+          <span class="tile-link">{{ T.blog.read }} →</span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for p in collections.all %}{% if not p.data.noindex and p.url and (p.url.startsWith('/ru/') or p.url.startsWith('/uz/')) %}
+  <url>
+    <loc>{{ cfg.base_url }}{{ p.url }}</loc>
+    <lastmod>{{ p.date | dateIso }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="{{ cfg.base_url }}{{ p.url | altUrl(p.data.lang, 'ru') }}"/>
+    <xhtml:link rel="alternate" hreflang="uz" href="{{ cfg.base_url }}{{ p.url | altUrl(p.data.lang, 'uz') }}"/>
+  </url>
+{%- endif %}{% endfor %}
+</urlset>

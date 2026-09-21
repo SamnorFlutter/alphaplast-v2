@@ -1,0 +1,32 @@
+{
+  "brand": "Alpha Plast",
+  "legal_name": "«ALPHA PLAST GROUP FACTORY» MCHJ",
+  "founded": 2018,
+  "phones": ["+998 95 170-34-43", "+998 99 170-17-00", "+998 99 170-46-44"],
+  "phones_raw": ["+998951703443", "+998991701700", "+998991704644"],
+  "email": "info@alphaplast.uz",
+  "address": { "ru": "Ташкент, Учтепинский район, ул. Заргарлик, 26", "uz": "Toshkent, Uchtepa tumani, Zargarlik ko'chasi, 26" },
+  "address_street": { "ru": "ул. Заргарлик, 26", "uz": "Zargarlik ko'chasi, 26" },
+  "address_district": { "ru": "Учтепинский район", "uz": "Uchtepa tumani" },
+  "city": { "ru": "Ташкент", "uz": "Toshkent" },
+  "hours": { "ru": "Пн–Сб: 9:00–18:00", "uz": "Du–Sha: 9:00–18:00" },
+  "hours_schema": ["Mo-Sa 09:00-18:00"],
+  "telegram": "https://t.me/alphaplastuz",
+  "telegram_channel": "https://t.me/alpha_plast",
+  "instagram": "https://www.instagram.com/alphaplast_uz/",
+  "youtube": "https://www.youtube.com/@AlphaPlast",
+  "maps": {
+    "yandex": "https://yandex.uz/maps/?text=Toshkent%2C%20Uchtepa%20tumani%2C%20Zargarlik%20ko%27chasi%2C%2026",
+    "2gis": "https://2gis.uz/tashkent/search/Zargarlik%20ko%27chasi%2C%2026",
+    "google": "https://www.google.com/maps/search/?api=1&query=Zargarlik%20ko%27chasi%2C%2026%2C%20Tashkent"
+  },
+  "requisites": [
+    { "label": { "ru": "Юридическое название", "uz": "Yuridik nomi" }, "value": { "ru": "«ALPHA PLAST GROUP FACTORY» MCHJ", "uz": "«ALPHA PLAST GROUP FACTORY» MCHJ" } },
+    { "label": { "ru": "ИНН (СТИР)", "uz": "STIR" }, "value": { "ru": "", "uz": "" }, "todo": true },
+    { "label": { "ru": "Юридический адрес", "uz": "Yuridik manzil" }, "value": { "ru": "Ташкент, Учтепинский район, ул. Заргарлик, 26", "uz": "Toshkent, Uchtepa tumani, Zargarlik ko'chasi, 26" } },
+    { "label": { "ru": "Расчётный счёт", "uz": "Hisob raqami" }, "value": { "ru": "", "uz": "" }, "todo": true },
+    { "label": { "ru": "Банк, МФО", "uz": "Bank, MFO" }, "value": { "ru": "", "uz": "" }, "todo": true }
+  ],
+  "trademark": { "number": "MGU 56687", "year": 2024 },
+  "facts": { "bags_total": "20 000 000+", "clients": "430+", "projects": "950+" }
+}

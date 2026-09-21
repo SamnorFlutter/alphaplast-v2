@@ -1,0 +1,13 @@
+{
+  "_comment": "Niche selector. A niche is rendered only when >= 3 clients exist for it (TZ). Others stay in data and appear automatically when clients are added.",
+  "min_clients": 3,
+  "items": [
+    { "key": "grocery", "label": { "ru": "Продуктовые магазины", "uz": "Oziq-ovqat do'konlari" }, "application": "food", "icon": "cart" },
+    { "key": "pharmacy", "label": { "ru": "Аптеки", "uz": "Dorixonalar" }, "application": "pharmacy", "icon": "cross" },
+    { "key": "horeca", "label": { "ru": "Кафе и рестораны", "uz": "Kafe va restoranlar" }, "application": "food", "icon": "cup" },
+    { "key": "clothing", "label": { "ru": "Одежда", "uz": "Kiyim" }, "application": "clothing", "icon": "shirt" },
+    { "key": "electronics", "label": { "ru": "Электроника", "uz": "Elektronika" }, "application": "delivery", "icon": "chip" },
+    { "key": "delivery", "label": { "ru": "Доставка", "uz": "Yetkazib berish" }, "application": "delivery", "icon": "box" },
+    { "key": "manufacturing", "label": { "ru": "Производство и логистика", "uz": "Ishlab chiqarish va logistika" }, "application": "construction", "icon": "factory" }
+  ]
+}

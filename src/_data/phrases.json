@@ -1,0 +1,29 @@
+{
+  "_comment": "Hero rotation. Pairs ru/uz, first part normal colour, second part accent. confirmed=false phrases contain promises not yet approved by the customer and are excluded from rotation (TZ §Ротация заголовков).",
+  "items": [
+    { "a": { "ru": "Пакеты с логотипом", "uz": "Logotipli paketlar" }, "b": { "ru": "из собственного цеха в Ташкенте", "uz": "Toshkentdagi o'z seximizdan" }, "confirmed": true },
+    { "a": { "ru": "Минимальный заказ 200 кг", "uz": "Minimal buyurtma 200 kg" }, "b": { "ru": "— честно, ещё до расчёта", "uz": "— halol, hisobdan oldinoq" }, "confirmed": true },
+    { "a": { "ru": "Флексопечать до 8 цветов", "uz": "8 ranggacha fleksobosma" }, "b": { "ru": "на полиэтилене и полипропилене", "uz": "polietilen va polipropilenda" }, "confirmed": true },
+    { "a": { "ru": "20 миллионов пакетов", "uz": "20 million paket" }, "b": { "ru": "выпущено с 2018 года", "uz": "2018-yildan beri chiqarilgan" }, "confirmed": true },
+    { "a": { "ru": "430+ компаний", "uz": "430+ kompaniya" }, "b": { "ru": "заказывают упаковку у нас", "uz": "qadoqni bizdan buyurtma qiladi" }, "confirmed": true },
+    { "a": { "ru": "Своё производство", "uz": "O'z ishlab chiqarishimiz" }, "b": { "ru": "— не перепродажа", "uz": "— qayta sotish emas" }, "confirmed": true },
+    { "a": { "ru": "Майка, ПВД, стрейч-худ", "uz": "Mayka, PVD, streych-xud" }, "b": { "ru": "— под ваш товар и нагрузку", "uz": "— sizning mahsulot va yukingizga" }, "confirmed": true },
+    { "a": { "ru": "Цена за штуку", "uz": "Dona narxi" }, "b": { "ru": "видна до звонка менеджеру", "uz": "menejerga qo'ng'iroqdan oldin ko'rinadi" }, "confirmed": true },
+    { "a": { "ru": "Курьерские пакеты", "uz": "Kuryer paketlari" }, "b": { "ru": "как для UZPOST и Yandex Market", "uz": "UZPOST va Yandex Market uchun bo'lgani kabi" }, "confirmed": true },
+    { "a": { "ru": "Тираж от 200 кг", "uz": "200 kg dan tiraj" }, "b": { "ru": "≈ 7 000 пакетов среднего размера", "uz": "≈ 7 000 o'rtacha paket" }, "confirmed": true },
+    { "a": { "ru": "ПНД и ПВД", "uz": "PND va PVD" }, "b": { "ru": "толщина под вашу нагрузку", "uz": "qalinligi yukingizga mos" }, "confirmed": true },
+    { "a": { "ru": "Логотип на пакете", "uz": "Paketdagi logotip" }, "b": { "ru": "— реклама, которая ходит по городу", "uz": "— shahar bo'ylab yuradigan reklama" }, "confirmed": true },
+    { "a": { "ru": "Стрейч-худ для паллет", "uz": "Palletlar uchun streych-xud" }, "b": { "ru": "из собственного цеха", "uz": "o'z seximizdan" }, "confirmed": true },
+    { "a": { "ru": "Рассчитайте цену", "uz": "Narxni hisoblang" }, "b": { "ru": "за 30 секунд, без звонка", "uz": "30 soniyada, qo'ng'iroqsiz" }, "confirmed": true },
+    { "a": { "ru": "Флексо и глубокая печать", "uz": "Flekso va chuqur bosma" }, "b": { "ru": "1–8 цветов, одна или две стороны", "uz": "1–8 rang, bir yoki ikki tomon" }, "confirmed": true },
+    { "a": { "ru": "Пакет-майка с печатью", "uz": "Bosmali mayka paket" }, "b": { "ru": "для магазинов и сетей", "uz": "do'kon va tarmoqlar uchun" }, "confirmed": true },
+    { "a": { "ru": "Пакеты с вырубной ручкой", "uz": "Kesilgan dastali paketlar" }, "b": { "ru": "для аптек, клиник и бутиков", "uz": "dorixona, klinika va butiklar uchun" }, "confirmed": true },
+    { "a": { "ru": "Пакеты в рулоне", "uz": "Rulonli paketlar" }, "b": { "ru": "с вашим логотипом для хлеба и фасовки", "uz": "non va fasovka uchun logotipingiz bilan" }, "confirmed": true },
+    { "a": { "ru": "Бесплатный макет", "uz": "Bepul maket" }, "b": { "ru": "под флексопечать вашего логотипа", "uz": "logotipingiz fleksobosmasi uchun" }, "confirmed": true },
+    { "a": { "ru": "Одна спецификация", "uz": "Bitta spetsifikatsiya" }, "b": { "ru": "— цена, вес и минимум сразу", "uz": "— narx, og'irlik va minimum darhol" }, "confirmed": true },
+    { "a": { "ru": "Пищевая упаковка", "uz": "Oziq-ovqat qadog'i" }, "b": { "ru": "с сертификатом соответствия", "uz": "muvofiqlik sertifikati bilan" }, "confirmed": false },
+    { "a": { "ru": "Срок изготовления", "uz": "Tayyorlash muddati" }, "b": { "ru": "10 рабочих дней", "uz": "10 ish kuni" }, "confirmed": false },
+    { "a": { "ru": "Отсрочка платежа", "uz": "To'lovni kechiktirish" }, "b": { "ru": "для постоянных клиентов", "uz": "doimiy mijozlar uchun" }, "confirmed": false },
+    { "a": { "ru": "Гарантия на брак", "uz": "Nuqsonga kafolat" }, "b": { "ru": "— перепечатаем за свой счёт", "uz": "— o'z hisobimizdan qayta chop etamiz" }, "confirmed": false }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "home": {
+    "seo_title": { "ru": "Пакеты с логотипом в Ташкенте — производство Alpha Plast", "uz": "Toshkentda logotipli paketlar — Alpha Plast ishlab chiqarishi" },
+    "seo_desc": { "ru": "Производство полиэтиленовых пакетов с логотипом: майка, ПВД, курьерские, стрейч-худ. Цена за штуку до звонка, минимальный заказ 200 кг, собственный цех в Ташкенте.", "uz": "Logotipli polietilen paketlar ishlab chiqarish: mayka, PVD, kuryer, streych-xud. Qo'ng'iroqdan oldin dona narxi, minimal buyurtma 200 kg, Toshkentdagi o'z sexi." },
+    "why": [
+      { "icon": "factory", "title": { "ru": "Собственный цех", "uz": "O'z sexi" }, "text": { "ru": "Экструзия, печать и резка на своём оборудовании в Ташкенте. Отвечаем за партию целиком, а не пересылаем заказ подрядчику.", "uz": "Toshkentdagi o'z uskunamizda ekstruziya, bosma va kesish. Buyurtmani pudratchiga o'tkazmaymiz — partiya uchun to'liq javob beramiz." } },
+      { "icon": "pen", "title": { "ru": "Бесплатный макет", "uz": "Bepul maket" }, "text": { "ru": "Пришлите логотип — подготовим макет под флексопечать и покажем, как он ляжет на пакет.", "uz": "Logotipni yuboring — fleksobosma uchun maket tayyorlaymiz va paketda qanday turishini ko'rsatamiz." } },
+      { "icon": "scale", "title": { "ru": "Честный минимум", "uz": "Halol minimum" }, "text": { "ru": "200 кг — порог, ниже которого партия невыгодна вам самим. Показываем его сразу, до расчёта и звонка.", "uz": "200 kg — undan past bo'lsa partiya sizning o'zingizga foydasiz. Uni hisob va qo'ng'iroqdan oldin darhol ko'rsatamiz." } },
+      { "icon": "truck", "title": { "ru": "Доставка и самовывоз", "uz": "Yetkazib berish va olib ketish" }, "text": { "ru": "Отгружаем по всему Узбекистану. Самовывоз со склада в Учтепинском районе Ташкента.", "uz": "Butun O'zbekiston bo'ylab jo'natamiz. Toshkent Uchtepa tumanidagi ombordan olib ketish mumkin." } }
+    ]
+  },
+  "about": {
+    "seo_title": { "ru": "Производство Alpha Plast — цех, оборудование, документы", "uz": "Alpha Plast ishlab chiqarishi — sex, uskunalar, hujjatlar" },
+    "seo_desc": { "ru": "Собственный цех полиэтиленовой упаковки в Ташкенте: экструзия, флексо и глубокая печать 1–8 цветов, зарегистрированный товарный знак, благодарности клиентов.", "uz": "Toshkentdagi polietilen qadoq sexi: ekstruziya, 1–8 rangli flekso va chuqur bosma, ro'yxatdan o'tgan tovar belgisi, mijozlar minnatdorligi." },
+    "h1": { "ru": "Производство, а не перепродажа", "uz": "Qayta sotish emas, ishlab chiqarish" },
+    "intro": { "ru": "Alpha Plast — производитель полиэтиленовой и полипропиленовой упаковки с собственным цехом в Ташкенте. С 2018 года выпустили более 20 миллионов пакетов для 430+ компаний.", "uz": "Alpha Plast — Toshkentda o'z sexi bo'lgan polietilen va polipropilen qadoq ishlab chiqaruvchisi. 2018-yildan beri 430+ kompaniya uchun 20 milliondan ortiq paket chiqardik." },
+    "blocks": [
+      { "title": { "ru": "Что делаем сами", "uz": "Nimani o'zimiz qilamiz" }, "text": { "ru": "Полный цикл внутри компании: экструзия плёнки из ПНД и ПВД, флексографская и глубокая печать от 1 до 8 цветов, резка и сварка пакетов, намотка рулонов. Бумажную упаковку не производим — только полиэтилен и полипропилен.", "uz": "Kompaniya ichida to'liq sikl: PND va PVD dan plyonka ekstruziyasi, 1 dan 8 ranggacha fleksografik va chuqur bosma, paketlarni kesish va payvandlash, rulon o'rash. Qog'oz qadoq ishlab chiqarmaymiz — faqat polietilen va polipropilen." } },
+      { "title": { "ru": "Печать", "uz": "Bosma" }, "text": { "ru": "Флексография — основной способ для пакетов: экономичная, быстрая, до 8 цветов с одной или двух сторон. Глубокая печать — для тиражей, где важна плотная заливка и точная передача оттенков. Макет проверяет технолог; финальный оттенок утверждается по шкале Pantone.", "uz": "Fleksografiya — paketlar uchun asosiy usul: tejamli, tez, bir yoki ikki tomondan 8 ranggacha. Chuqur bosma — zich to'ldirish va tuslarni aniq uzatish muhim bo'lgan tirajlar uchun. Maketni texnolog tekshiradi; yakuniy tus Pantone shkalasi bo'yicha tasdiqlanadi." } },
+      { "title": { "ru": "Материалы", "uz": "Materiallar" }, "text": { "ru": "ПНД (HDPE) — жёсткая шуршащая плёнка для маек и фасовки. ПВД (LDPE) — мягкая глянцевая плёнка для пакетов с вырубной и петлевой ручкой, курьерских пакетов и стрейч-худа. OPP — прозрачный полипропилен. Толщина подбирается под нагрузку, а вес каждой позиции виден в каталоге.", "uz": "PND (HDPE) — mayka va fasovka uchun qattiq shitirlaydigan plyonka. PVD (LDPE) — kesilgan va ilmoqli dastali paketlar, kuryer paketlar va streych-xud uchun yumshoq yaltiroq plyonka. OPP — shaffof polipropilen. Qalinlik yukka qarab tanlanadi, har bir pozitsiya og'irligi katalogda ko'rinadi." } }
+    ],
+    "proof_title": { "ru": "Доказательства, а не эпитеты", "uz": "Sifatlar emas, dalillar" },
+    "proof_sub": { "ru": "Видео из цеха, свидетельство на товарный знак, письма клиентов. Приезжайте посмотреть производство — договоримся о времени.", "uz": "Sexdan video, tovar belgisi guvohnomasi, mijozlar xatlari. Ishlab chiqarishni ko'rgani keling — vaqtni kelishamiz." },
+    "trademark": { "title": { "ru": "Товарный знак «Alpha plast»", "uz": "«Alpha plast» tovar belgisi" }, "text": { "ru": "Свидетельство Guvohnoma № MGU 56687, Минюст Республики Узбекистан, 2024. Класс МКТУ 16 — пластиковые материалы и упаковка.", "uz": "Guvohnoma № MGU 56687, O'zbekiston Respublikasi Adliya vazirligi, 2024. MKTU 16-sinf — plastik materiallar va qadoq." } },
+    "visit": { "title": { "ru": "Приглашаем на производство", "uz": "Ishlab chiqarishga taklif qilamiz" }, "text": { "ru": "Учтепинский район, ул. Заргарлик, 26. Покажем линии, образцы печати и склад. Напишите в Telegram — согласуем день и время.", "uz": "Uchtepa tumani, Zargarlik ko'chasi, 26. Liniyalar, bosma namunalari va omborni ko'rsatamiz. Telegramga yozing — kun va vaqtni kelishamiz." } },
+    "docs_title": { "ru": "Документы", "uz": "Hujjatlar" },
+    "contract_note": { "ru": "Образец договора поставки в PDF будет добавлен после согласования с юристом.", "uz": "Yetkazib berish shartnomasi namunasi (PDF) yurist bilan kelishilgandan keyin qo'shiladi." }
+  },
+  "payment": {
+    "seo_title": { "ru": "Доставка и оплата — условия 50/50, договор, самовывоз", "uz": "Yetkazib berish va to'lov — 50/50 shartlari, shartnoma, olib ketish" },
+    "seo_desc": { "ru": "Как проходит заказ упаковки в Alpha Plast: предоплата 50%, договор, запуск печати, доплата в день выпуска, доставка по Узбекистану или самовывоз в Ташкенте.", "uz": "Alpha Plast da qadoq buyurtmasi qanday o'tadi: 50% oldindan to'lov, shartnoma, bosmani ishga tushirish, chiqarish kuni qo'shimcha to'lov, O'zbekiston bo'ylab yetkazib berish yoki Toshkentda olib ketish." },
+    "h1": { "ru": "Доставка и оплата", "uz": "Yetkazib berish va to'lov" },
+    "intro": { "ru": "Схема одна для всех клиентов: 50% при заказе, 50% в день выпуска тиража, отгрузка после полной оплаты. Без сюрпризов в финальной сумме — цена и срок фиксируются в договоре.", "uz": "Sxema barcha mijozlar uchun bir xil: buyurtmada 50%, tiraj chiqarilgan kuni 50%, to'liq to'lovdan keyin jo'natish. Yakuniy summada kutilmagan narsalar yo'q — narx va muddat shartnomada mahkamlanadi." },
+    "scheme_title": { "ru": "Схема 50/50", "uz": "50/50 sxemasi" },
+    "steps": [
+      { "ru": "Вы оформляете заказ и вносите 50% предоплаты.", "uz": "Buyurtma berasiz va 50% oldindan to'lov kiritasiz." },
+      { "ru": "После оплаты выдаётся код договора; консультант связывается и оформляет юридический договор.", "uz": "To'lovdan keyin shartnoma kodi beriladi; konsultant bog'lanadi va yuridik shartnoma rasmiylashtiradi." },
+      { "ru": "Технолог утверждает макет, цех запускает печать.", "uz": "Texnolog maketni tasdiqlaydi, sex bosmani ishga tushiradi." },
+      { "ru": "В день выпуска тиража вы оплачиваете оставшиеся 50%.", "uz": "Tiraj chiqarilgan kuni qolgan 50% ni to'laysiz." },
+      { "ru": "Отгрузка — только после полной оплаты: доставка или самовывоз.", "uz": "Jo'natish — faqat to'liq to'lovdan keyin: yetkazib berish yoki olib ketish." }
+    ],
+    "methods_title": { "ru": "Способы оплаты", "uz": "To'lov usullari" },
+    "methods": [
+      { "title": { "ru": "Безналичный расчёт", "uz": "Naqd pulsiz hisob-kitob" }, "text": { "ru": "Счёт на юридическое лицо или ИП, закрывающие документы после отгрузки.", "uz": "Yuridik shaxs yoki YaTT ga hisob-faktura, jo'natishdan keyin yopuvchi hujjatlar." } },
+      { "title": { "ru": "Онлайн-оплата", "uz": "Onlayn to'lov" }, "text": { "ru": "Uzcard, Humo, Visa, Mastercard, Click, Payme и Uzum с фискальным чеком — подключается на втором этапе запуска сайта.", "uz": "Fiskal chek bilan Uzcard, Humo, Visa, Mastercard, Click, Payme va Uzum — sayt ishga tushirilishining ikkinchi bosqichida ulanadi." }, "soon": true }
+    ],
+    "delivery_title": { "ru": "Доставка", "uz": "Yetkazib berish" },
+    "delivery_text": { "ru": "Доставляем по всему Узбекистану. Стоимость зависит от региона и объёма партии и считается менеджером при оформлении; в рабочей версии сайта точку доставки можно будет поставить на карте.", "uz": "Butun O'zbekiston bo'ylab yetkazamiz. Narx hudud va partiya hajmiga bog'liq va rasmiylashtirishda menejer tomonidan hisoblanadi; saytning ishchi versiyasida yetkazib berish nuqtasini xaritada belgilash mumkin bo'ladi." },
+    "pickup_title": { "ru": "Самовывоз", "uz": "Olib ketish" },
+    "pickup_text": { "ru": "Склад в Ташкенте, Учтепинский район, ул. Заргарлик, 26. Выдача Пн–Сб с 9:00 до 18:00. При самовывозе стоимость доставки в итоговой сумме — ноль.", "uz": "Toshkentdagi ombor, Uchtepa tumani, Zargarlik ko'chasi, 26. Du–Sha 9:00 dan 18:00 gacha beriladi. Olib ketishda yakuniy summada yetkazib berish narxi — nol." },
+    "docs_title": { "ru": "Документы", "uz": "Hujjatlar" },
+    "docs_text": { "ru": "Договор, счёт, счёт-фактура и акт. Номер договора сквозной: он же в назначении платежа и в уведомлениях. Реквизиты компании — в подвале сайта.", "uz": "Shartnoma, hisob, hisob-faktura va dalolatnoma. Shartnoma raqami yagona: to'lov maqsadida ham, bildirishnomalarda ham o'sha. Kompaniya rekvizitlari — sayt pastida." },
+    "faq": [
+      { "q": { "ru": "Можно ли оплатить полностью сразу?", "uz": "To'liq darhol to'lash mumkinmi?" }, "a": { "ru": "Да. 50% — минимальная предоплата для запуска, полная оплата вперёд тоже принимается.", "uz": "Ha. 50% — ishga tushirish uchun minimal oldindan to'lov, oldindan to'liq to'lov ham qabul qilinadi." } },
+      { "q": { "ru": "Когда узнаю точный срок?", "uz": "Aniq muddatni qachon bilaman?" }, "a": { "ru": "После утверждения макета технологом: дата выпуска фиксируется в договоре.", "uz": "Texnolog maketni tasdiqlagandan keyin: chiqarish sanasi shartnomada mahkamlanadi." } },
+      { "q": { "ru": "Что если тираж меньше 200 кг?", "uz": "Tiraj 200 kg dan kam bo'lsa nima bo'ladi?" }, "a": { "ru": "Калькулятор покажет, сколько штук нужно добрать, и предложит довести заказ до минимума одним нажатием.", "uz": "Kalkulyator necha dona qo'shish kerakligini ko'rsatadi va buyurtmani bir bosishda minimumga yetkazishni taklif qiladi." } }
+    ]
+  },
+  "contacts": {
+    "seo_title": { "ru": "Контакты Alpha Plast — адрес цеха в Ташкенте, телефоны", "uz": "Alpha Plast kontaktlari — Toshkentdagi sex manzili, telefonlar" },
+    "seo_desc": { "ru": "Производство полиэтиленовых пакетов Alpha Plast: Ташкент, Учтепинский район, ул. Заргарлик, 26. Телефоны, Telegram, часы работы, реквизиты, карта.", "uz": "Alpha Plast polietilen paketlar ishlab chiqarishi: Toshkent, Uchtepa tumani, Zargarlik ko'chasi, 26. Telefonlar, Telegram, ish vaqti, rekvizitlar, xarita." },
+    "h1": { "ru": "Контакты", "uz": "Kontaktlar" },
+    "intro": { "ru": "Пишите в Telegram — ответим в рабочие часы. Приехать на производство можно по предварительной договорённости.", "uz": "Telegramga yozing — ish vaqtida javob beramiz. Ishlab chiqarishga oldindan kelishib kelish mumkin." }
+  },
+  "links": {
+    "one_line": { "ru": "Производство пакетов с логотипом в Ташкенте. Минимальный заказ 200 кг, печать до 8 цветов.", "uz": "Toshkentda logotipli paketlar ishlab chiqarish. Minimal buyurtma 200 kg, 8 ranggacha bosma." },
+    "title": { "ru": "Alpha Plast — визитка", "uz": "Alpha Plast — tashrif sahifa" }
+  },
+  "account": {
+    "seo_title": { "ru": "Личный кабинет — вход через Telegram", "uz": "Shaxsiy kabinet — Telegram orqali kirish" },
+    "h1": { "ru": "Кабинет: история заказов и повтор в одно касание", "uz": "Kabinet: buyurtmalar tarixi va bir bosishda takrorlash" },
+    "intro": { "ru": "Авторизация никогда не блокирует заказ: калькулятор, заявка и оформление доступны гостю. Кабинет — удобство после первого заказа, а не условие.", "uz": "Avtorizatsiya hech qachon buyurtmani bloklamaydi: kalkulyator, so'rov va rasmiylashtirish mehmonga ochiq. Kabinet — birinchi buyurtmadan keyingi qulaylik, shart emas." },
+    "steps_title": { "ru": "Вход через Telegram — единственный способ", "uz": "Telegram orqali kirish — yagona usul" },
+    "steps": [
+      { "ru": "Нажимаете «Войти через Telegram».", "uz": "«Telegram orqali kirish» ni bosasiz." },
+      { "ru": "Сервер выдаёт одноразовый токен и открывает бота: на телефоне — сразу, на компьютере — по QR-коду.", "uz": "Server bir martalik token beradi va botni ochadi: telefonda — darhol, kompyuterda — QR-kod orqali." },
+      { "ru": "Вы жмёте Start — с этого момента бот вправе писать вам уведомления.", "uz": "Start ni bosasiz — shu paytdan bot sizga bildirishnoma yozishi mumkin." },
+      { "ru": "Бот показывает кнопку «Поделиться номером»: номер берётся из Telegram, SMS не нужны.", "uz": "Bot «Raqamni ulashish» tugmasini ko'rsatadi: raqam Telegramdan olinadi, SMS kerak emas." },
+      { "ru": "Одно касание — сайт получает подтверждённый номер и логинит вас сам.", "uz": "Bir bosish — sayt tasdiqlangan raqamni oladi va sizni o'zi kiritadi." }
+    ],
+    "benefits_title": { "ru": "Что даёт кабинет", "uz": "Kabinet nima beradi" },
+    "benefits": [
+      { "ru": "История заказов со статусами и кодами договоров", "uz": "Statuslar va shartnoma kodlari bilan buyurtmalar tarixi" },
+      { "ru": "Кнопка «Повторить заказ» в одно касание", "uz": "Bir bosishda «Buyurtmani takrorlash» tugmasi" },
+      { "ru": "Сохранённые макеты и реквизиты", "uz": "Saqlangan maketlar va rekvizitlar" },
+      { "ru": "Документы на скачивание и остаток к оплате", "uz": "Yuklab olinadigan hujjatlar va to'lov qoldig'i" },
+      { "ru": "Уведомления в Telegram: макет готов, предоплата получена, тираж готов, груз отгружен", "uz": "Telegramda bildirishnomalar: maket tayyor, oldindan to'lov olindi, tiraj tayyor, yuk jo'natildi" }
+    ],
+    "guest_title": { "ru": "Нет Telegram?", "uz": "Telegram yo'qmi?" },
+    "guest_text": { "ru": "Заказ оформляется гостем: имя, телефон, спецификация. Менеджер ведёт его вручную — мы не теряем клиента из-за мессенджера.", "uz": "Buyurtma mehmon sifatida rasmiylashtiriladi: ism, telefon, spetsifikatsiya. Menejer uni qo'lda yuritadi — messenjer tufayli mijozni yo'qotmaymiz." },
+    "demo_note": { "ru": "В демо-версии кабинет не активен: серверная часть (токены, вебхуки бота, база заказов) запускается на хостинге ahost на первом этапе.", "uz": "Demo versiyada kabinet faol emas: server qismi (tokenlar, bot vebxuklari, buyurtmalar bazasi) birinchi bosqichda ahost hostingida ishga tushiriladi." }
+  },
+  "order": {
+    "seo_title": { "ru": "Заявка на расчёт и заказ упаковки", "uz": "Qadoq hisobi va buyurtmasiga so'rov" },
+    "h1": { "ru": "Заявка на заказ", "uz": "Buyurtma so'rovi" },
+    "intro": { "ru": "Спецификация из калькулятора уже подставлена — проверьте и отправьте. Юридические данные (тип лица, ИНН) понадобятся только на шаге оформления договора.", "uz": "Kalkulyatordagi spetsifikatsiya allaqachon qo'yilgan — tekshiring va yuboring. Yuridik ma'lumotlar (shaxs turi, STIR) faqat shartnoma rasmiylashtirish bosqichida kerak bo'ladi." },
+    "stage_note": { "ru": "Онлайн-оплата 50% с фискальным чеком и статус заказа по ссылке появятся на втором этапе запуска. Сейчас менеджер подтверждает заказ и выставляет счёт.", "uz": "Fiskal chek bilan 50% onlayn to'lov va havola bo'yicha buyurtma statusi ishga tushirishning ikkinchi bosqichida paydo bo'ladi. Hozir menejer buyurtmani tasdiqlaydi va hisob qo'yadi." }
+  },
+  "notfound": {
+    "title": { "ru": "Страница не найдена", "uz": "Sahifa topilmadi" },
+    "text": { "ru": "Возможно, ссылка устарела. Каталог, калькулятор и контакты — в меню.", "uz": "Havola eskirgan bo'lishi mumkin. Katalog, kalkulyator va kontaktlar — menyuda." }
+  }
+}

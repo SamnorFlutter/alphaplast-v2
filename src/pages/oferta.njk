@@ -1,0 +1,14 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/oferta/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ legal.oferta.title[lang] }} — Alpha Plast"
+  seoDesc: "{{ legal.oferta.title[lang] }}. {{ company.legal_name }}"
+---
+<section class="section page-head"><div class="container narrow">{% set crumbs = [{ "name": legal.oferta.title | tr(lang), "url": L + "/oferta/" }] %}{% include "partials/breadcrumbs.njk" %}<h1>{{ legal.oferta.title | tr(lang) }}</h1><p class="muted small">{{ legal.oferta.updated | tr(lang) }}</p></div></section>
+<section class="section"><div class="container narrow"><article class="glass prose">{{ legal.oferta.body | tr(lang) | safe }}<p>{{ company.address | tr(lang) }} · <a href="mailto:{{ company.email }}">{{ company.email }}</a> · <a href="tel:{{ company.phones_raw[0] }}">{{ company.phones[0] }}</a></p><p class="note muted small">{{ legal.note | tr(lang) }}</p></article></div></section>

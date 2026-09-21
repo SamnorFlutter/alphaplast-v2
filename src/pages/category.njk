@@ -1,0 +1,61 @@
+---
+pagination:
+  data: categoryPages
+  size: 1
+  alias: cp
+  addAllPagesToCollections: true
+permalink: "/{{ cp.lang }}/catalog/{{ cp.slug }}/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ cp.seo_title[cp.lang] }}"
+  seoDesc: "{{ cp.seo_desc[cp.lang] }}"
+---
+{%- set items = [] -%}
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.catalog, "url": L + "/catalog/" }, { "name": cp.name | tr(lang), "url": L + "/catalog/" + cp.slug + "/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ cp.h1 | tr(lang) }}</h1>
+    <p class="sub">{{ cp.intro | tr(lang) }}</p>
+    <div class="facts-row">
+      <span class="glass chip"><b>{{ T.common.min_order }}:</b> {{ T.common.min_order_value }}</span>
+      <span class="glass chip"><b>{{ T.common.print }}:</b> {{ T.common.print_value }}</span>
+      <span class="glass chip"><b>{{ T.common.materials }}:</b> {{ T.common.materials_value }}</span>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3 products">
+      {% for p in products.items | sortBy('order') %}{% if cp.types.includes(p.type) %}{% include "partials/product-card.njk" %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose-grid">
+    <article class="glass prose">{{ cp.body | tr(lang) | safe }}</article>
+    <aside class="side">
+      <div class="glass tile sticky">
+        <span class="tile-title">{{ T.cta.calc }}</span>
+        <span class="tile-desc muted">{{ T.calc.sub }}</span>
+        <a class="btn btn-primary" href="{{ (L + '/calculator/') | url }}?type={{ cp.types[0] }}">{{ T.cta.calc }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-glass" href="{{ company.telegram }}" rel="noopener" data-event="tg_click">{{ T.cta.tg }}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{% if cp.faq and cp.faq.length %}
+<section class="section">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="faq">
+      {% for f in cp.faq %}<details class="glass faq-item"><summary>{{ f.q | tr(lang) }}</summary><p>{{ f.a | tr(lang) }}</p></details>{% endfor %}
+    </div>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in cp.faq %}{"@type":"Question","name":{{ f.q | tr(lang) | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | tr(lang) | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+  </div>
+</section>
+{% endif %}
+<section class="section">
+  <div class="container">
+    {% set formId = 'lead-cat' %}{% set presetSpec = cp.name | tr(lang) %}{% set presetProduct = '' %}{% include "partials/lead-form.njk" %}
+  </div>
+</section>

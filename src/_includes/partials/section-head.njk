@@ -1,0 +1,9 @@
+{# expects: shEyebrow, shTitle, shSub, shLink, shLinkText (optional) #}
+<div class="sec-head">
+  <div>
+    {% if shEyebrow %}<div class="eyebrow">{{ shEyebrow }}</div>{% endif %}
+    <h2>{{ shTitle }}</h2>
+    {% if shSub %}<p class="sub">{{ shSub }}</p>{% endif %}
+  </div>
+  {% if shLink %}<a class="btn btn-glass btn-sm" href="{{ shLink | url }}">{{ shLinkText }} <svg class="ic"><use href="#i-arrow"/></svg></a>{% endif %}
+</div>

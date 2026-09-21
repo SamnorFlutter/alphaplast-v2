@@ -1,0 +1,10 @@
+{# expects: crumbs = [{name, url}] (site path without prefix); home is prepended automatically #}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ (L + '/') | url }}">{{ T.breadcrumbs.home }}</a></li>
+  {%- for c in crumbs -%}
+    <li>{% if not loop.last %}<a href="{{ c.url | url }}">{{ c.name }}</a>{% else %}<span aria-current="page">{{ c.name }}</span>{% endif %}</li>
+  {%- endfor -%}
+  </ol>
+</nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ T.breadcrumbs.home | json | safe }},"item":{{ (cfg.base_url + L + '/') | json | safe }}}{% for c in crumbs %},{"@type":"ListItem","position":{{ loop.index + 1 }},"name":{{ c.name | json | safe }},"item":{{ (cfg.base_url + c.url) | json | safe }}}{% endfor %}]}</script>

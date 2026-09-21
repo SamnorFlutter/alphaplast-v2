@@ -1,0 +1,14 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/privacy/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ legal.privacy.title[lang] }} — Alpha Plast"
+  seoDesc: "{{ legal.privacy.title[lang] }}. {{ company.legal_name }}"
+---
+<section class="section page-head"><div class="container narrow">{% set crumbs = [{ "name": legal.privacy.title | tr(lang), "url": L + "/privacy/" }] %}{% include "partials/breadcrumbs.njk" %}<h1>{{ legal.privacy.title | tr(lang) }}</h1><p class="muted small">{{ legal.privacy.updated | tr(lang) }}</p></div></section>
+<section class="section"><div class="container narrow"><article class="glass prose">{{ legal.privacy.body | tr(lang) | safe }}<h2>7. {{ T.nav.contacts }}</h2><p>{{ company.legal_name }}<br>{{ company.address | tr(lang) }}<br><a href="mailto:{{ company.email }}">{{ company.email }}</a> · <a href="tel:{{ company.phones_raw[0] }}">{{ company.phones[0] }}</a></p><p class="note muted small">{{ legal.note | tr(lang) }}</p></article></div></section>

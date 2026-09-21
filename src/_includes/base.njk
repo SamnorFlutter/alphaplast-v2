@@ -1,0 +1,163 @@
+{%- set pageTitle = (seoTitle or title or cfg.site_name) -%}
+{%- set pageDesc = (seoDesc or T.hero.lead) -%}
+{%- set canonical = cfg.base_url + page.url -%}
+{%- set altPageUrl = page.url | altUrl(lang, altLang) -%}
+{%- set ruUrl = page.url | altUrl(lang, 'ru') -%}
+{%- set uzUrl = page.url | altUrl(lang, 'uz') -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+{% if noindex %}<meta name="robots" content="noindex, nofollow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" hreflang="ru" href="{{ cfg.base_url }}{{ ruUrl }}">
+<link rel="alternate" hreflang="uz" href="{{ cfg.base_url }}{{ uzUrl }}">
+<link rel="alternate" hreflang="x-default" href="{{ cfg.base_url }}{{ ruUrl }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ cfg.site_name }}">
+<meta property="og:locale" content="{{ 'uz_UZ' if lang == 'uz' else 'ru_RU' }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ cfg.base_url }}/assets/{{ ogImage or 'og-cover.jpg' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0c0f">
+<link rel="icon" href="{{ '/assets/logo-mark.png' | url }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ '/assets/logo-square.png' | url }}">
+<link rel="preload" href="{{ '/assets/fonts/manrope-cyrillic.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/manrope-latin.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+<script>(function(){try{var t=localStorage.getItem('ap-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+{% if cfg.gtm_id %}<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ cfg.gtm_id }}');</script>{% endif %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": cfg.base_url + "/#org", "name": company.brand, "legalName": company.legal_name, "url": cfg.base_url + "/" + lang + "/", "logo": cfg.base_url + "/assets/logo-square.png", "foundingDate": "2018", "telephone": company.phones_raw[0], "email": company.email, "sameAs": [company.telegram, company.telegram_channel, company.instagram, company.youtube], "address": { "@type": "PostalAddress", "streetAddress": company.address_street | tr(lang), "addressLocality": company.city | tr(lang), "addressCountry": "UZ" } },
+    { "@type": "LocalBusiness", "@id": cfg.base_url + "/#local", "name": company.brand, "image": cfg.base_url + "/assets/og-cover.jpg", "url": cfg.base_url + "/" + lang + "/", "telephone": company.phones_raw[0], "email": company.email, "priceRange": "UZS", "openingHours": company.hours_schema, "address": { "@type": "PostalAddress", "streetAddress": company.address_street | tr(lang), "addressLocality": company.city | tr(lang), "addressCountry": "UZ" }, "parentOrganization": { "@id": cfg.base_url + "/#org" } },
+    { "@type": "WebSite", "url": cfg.base_url + "/", "name": company.brand, "inLanguage": ["ru", "uz"] }
+  ]
+} | json | safe }}</script>
+</head>
+<body class="{{ bodyClass }}">
+{% if cfg.gtm_id %}<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ cfg.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>{% endif %}
+<a class="skip" href="#main">{{ T.common.skip }}</a>
+<div class="bg-glow" aria-hidden="true"></div>
+{% include "partials/icons.njk" %}
+{% if cfg.demo_mode %}<div class="demo-bar" id="demoBar" role="note"><span class="demo-dot"></span><span>{{ T.demo.banner }}</span><button type="button" class="demo-close" data-demo-close aria-label="{{ T.common.close }}">×</button></div>{% endif %}
+<header class="site-header" id="top">
+  <div class="container">
+    <div class="glass hdr">
+      <a class="brand" href="{{ (L + '/') | url }}" aria-label="{{ company.brand }}">
+        <img src="{{ '/assets/logo-mark.png' | url }}" width="36" height="36" alt="{{ company.brand }}">
+        <span class="brand-name">Alpha<span>Plast</span></span>
+      </a>
+      <nav class="nav" aria-label="{{ T.nav.menu }}">
+        <a href="{{ (L + '/catalog/') | url }}">{{ T.nav.catalog }}</a>
+        <a href="{{ (L + '/bestsellers/') | url }}">{{ T.nav.bestsellers }}</a>
+        <a href="{{ (L + '/calculator/') | url }}">{{ T.nav.calculator }}</a>
+        <a href="{{ (L + '/portfolio/') | url }}">{{ T.nav.portfolio }}</a>
+        <a href="{{ (L + '/about/') | url }}">{{ T.nav.about }}</a>
+        <a href="{{ (L + '/blog/') | url }}">{{ T.nav.blog }}</a>
+        <a href="{{ (L + '/contacts/') | url }}">{{ T.nav.contacts }}</a>
+      </nav>
+      <div class="hdr-tools">
+        <a class="pill lang" href="{{ altPageUrl | url }}" hreflang="{{ altLang }}" lang="{{ altLang }}" data-lang-switch="{{ altLang }}">{{ 'UZ' if lang == 'ru' else 'RU' }}</a>
+        <button type="button" class="pill theme" data-theme-toggle aria-label="Theme"><svg class="ic sun"><use href="#i-sun"/></svg><svg class="ic moon"><use href="#i-moon"/></svg></button>
+        <a class="btn btn-primary hdr-cta" href="{{ (L + '/calculator/') | url }}">{{ T.cta.calc }}</a>
+        <button type="button" class="pill burger" data-menu-open aria-label="{{ T.nav.menu }}"><svg class="ic"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer-bg" data-menu-close></div>
+  <div class="glass drawer-panel">
+    <div class="drawer-head"><span class="brand-name">Alpha<span>Plast</span></span><button type="button" class="pill" data-menu-close aria-label="{{ T.nav.close }}"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <nav class="drawer-nav">
+      <a href="{{ (L + '/catalog/') | url }}">{{ T.nav.catalog }}</a>
+      <a href="{{ (L + '/bestsellers/') | url }}">{{ T.nav.bestsellers }}</a>
+      <a href="{{ (L + '/calculator/') | url }}">{{ T.nav.calculator }}</a>
+      <a href="{{ (L + '/portfolio/') | url }}">{{ T.nav.portfolio }}</a>
+      <a href="{{ (L + '/clients/') | url }}">{{ T.nav.clients }}</a>
+      <a href="{{ (L + '/about/') | url }}">{{ T.nav.about }}</a>
+      <a href="{{ (L + '/payment/') | url }}">{{ T.nav.payment }}</a>
+      <a href="{{ (L + '/blog/') | url }}">{{ T.nav.blog }}</a>
+      <a href="{{ (L + '/contacts/') | url }}">{{ T.nav.contacts }}</a>
+      <a href="{{ (L + '/account/') | url }}">{{ T.nav.account }}</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-primary" href="{{ (L + '/calculator/') | url }}">{{ T.cta.calc }}</a>
+      <a class="btn btn-glass" href="{{ company.telegram }}" rel="noopener" data-event="tg_click">{{ T.cta.tg }}</a>
+      <a class="drawer-phone" href="tel:{{ company.phones_raw[0] }}" data-event="phone_click">{{ company.phones[0] }}</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="glass foot">
+      <div class="foot-grid">
+        <div class="foot-about">
+          <div class="brand"><img src="{{ '/assets/logo-mark.png' | url }}" width="32" height="32" alt="" loading="lazy"><span class="brand-name">Alpha<span>Plast</span></span></div>
+          <p>{{ T.footer.about }}</p>
+          <div class="socials">
+            <a href="{{ company.telegram }}" rel="noopener" aria-label="Telegram" data-event="tg_click"><svg class="ic"><use href="#i-tg"/></svg></a>
+            <a href="{{ company.instagram }}" rel="noopener" aria-label="Instagram"><svg class="ic"><use href="#i-ig"/></svg></a>
+            <a href="{{ company.youtube }}" rel="noopener" aria-label="YouTube"><svg class="ic"><use href="#i-yt"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>{{ T.footer.catalog }}</h3>
+          <ul>{% for c in categories.items %}<li><a href="{{ (L + '/catalog/' + c.slug + '/') | url }}">{{ c.name | tr(lang) }}</a></li>{% endfor %}<li><a href="{{ (L + '/bestsellers/') | url }}">{{ T.nav.bestsellers }}</a></li></ul>
+        </div>
+        <div>
+          <h3>{{ T.footer.nav }}</h3>
+          <ul>
+            <li><a href="{{ (L + '/calculator/') | url }}">{{ T.nav.calculator }}</a></li>
+            <li><a href="{{ (L + '/portfolio/') | url }}">{{ T.nav.portfolio }}</a></li>
+            <li><a href="{{ (L + '/clients/') | url }}">{{ T.nav.clients }}</a></li>
+            <li><a href="{{ (L + '/about/') | url }}">{{ T.nav.about }}</a></li>
+            <li><a href="{{ (L + '/payment/') | url }}">{{ T.nav.payment }}</a></li>
+            <li><a href="{{ (L + '/blog/') | url }}">{{ T.nav.blog }}</a></li>
+            <li><a href="{{ (L + '/account/') | url }}">{{ T.nav.account }}</a></li>
+            <li><a href="{{ (L + '/links/') | url }}">{{ T.nav.links }}</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>{{ T.footer.contacts }}</h3>
+          <ul class="foot-contacts">
+            {% for ph in company.phones %}<li><a href="tel:{{ company.phones_raw[loop.index0] }}" data-event="phone_click">{{ ph }}</a></li>{% endfor %}
+            <li><a href="mailto:{{ company.email }}">{{ company.email }}</a></li>
+            <li>{{ company.address | tr(lang) }}</li>
+            <li>{{ company.hours | tr(lang) }}</li>
+          </ul>
+        </div>
+      </div>
+      <details class="req">
+        <summary>{{ T.footer.requisites }}</summary>
+        <table class="table"><tbody>{% for r in company.requisites %}<tr><th>{{ r.label | tr(lang) }}</th><td>{% if r.todo %}<span class="muted">{{ T.footer.todo }}</span>{% else %}{{ r.value | tr(lang) }}{% endif %}</td></tr>{% endfor %}</tbody></table>
+      </details>
+      <div class="foot-bottom">
+        <span>© {{ buildTime | slice(0, 4) }} {{ company.legal_name }}. {{ T.footer.rights }}</span>
+        <span><a href="{{ (L + '/privacy/') | url }}">{{ T.footer.privacy }}</a> · <a href="{{ (L + '/oferta/') | url }}">{{ T.footer.oferta }}</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="tg-float glass" href="{{ company.telegram }}" rel="noopener" aria-label="Telegram" data-event="tg_click"><svg class="ic"><use href="#i-tg"/></svg></a>
+<script>window.AP={{ {
+  "lang": lang, "L": (L + "/") | url, "alt": altLang, "demo": cfg.demo_mode, "minKg": cfg.min_order_kg,
+  "pricing": pricing, "bestsellers": bestsellers.items,
+  "web3forms": secrets.web3forms_key, "tg": { "token": secrets.telegram_bot_token, "chat": secrets.telegram_chat_id },
+  "utmDays": cfg.utm_cookie_days,
+  "t": { "calc": T.calc, "form": T.form, "catalog": T.catalog, "bestsellers": T.bestsellers, "cta": T.cta, "demo": T.demo }
+} | json | safe }};</script>
+<script src="{{ '/assets/calc-engine.js' | url }}" defer></script>
+<script src="{{ '/assets/app.js' | url }}" defer></script>
+</body>
+</html>

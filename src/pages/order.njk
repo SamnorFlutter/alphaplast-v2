@@ -1,0 +1,32 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/order/"
+layout: base.njk
+noindex: true
+eleventyComputed:
+  seoTitle: "{{ pages.order.seo_title[lang] }} — Alpha Plast"
+  seoDesc: "{{ pages.order.intro[lang] }}"
+---
+<section class="section page-head">
+  <div class="container narrow">
+    {% set crumbs = [{ "name": T.nav.calculator, "url": L + "/calculator/" }, { "name": pages.order.h1 | tr(lang), "url": L + "/order/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ pages.order.h1 | tr(lang) }}</h1>
+    <p class="sub">{{ pages.order.intro | tr(lang) }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    <div class="glass order-summary" data-order-summary hidden>
+      <span class="eyebrow">{{ T.calc.spec }}</span>
+      <p data-order-spec></p>
+      <p class="muted" data-order-price></p>
+      <a class="muted small" href="{{ (L + '/calculator/') | url }}" data-order-back>← {{ T.cta.back }}</a>
+    </div>
+    {% set formId = 'lead-order' %}{% set presetSpec = '' %}{% set presetProduct = '' %}{% set formTitle = pages.order.h1 | tr(lang) %}{% set formSub = T.form.sub %}{% include "partials/lead-form.njk" %}
+    <p class="muted small">{{ pages.order.stage_note | tr(lang) }}</p>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+permalink: /api/catalog.json
+eleventyExcludeFromCollections: true
+---
+{%- set out = [] -%}
+{"generated":{{ buildTime | json | safe }},"currency":"UZS","min_order_kg":{{ cfg.min_order_kg }},"demo":{{ cfg.demo_mode }},"products":[
+{%- for p in products.items | sortBy('order') -%}
+{%- set pf = p | priceFrom(pricing, bestsellers.items) -%}
+{"slug":{{ p.slug | json | safe }},"category":{{ p.category | json | safe }},"type":{{ p.type | json | safe }},"name":{{ p.name | json | safe }},"short":{{ p.short | json | safe }},"url":{"ru":{{ (cfg.base_url + '/ru/product/' + p.slug + '/') | json | safe }},"uz":{{ (cfg.base_url + '/uz/product/' + p.slug + '/') | json | safe }}},"materials":{{ p.materials | json | safe }},"default_spec":{{ p.defaultSpec | json | safe }},"sizes":{{ p.sizes | json | safe }},"thickness_um":{{ p.thickness_options | json | safe }},"weight_g_default":{{ p.defaultSpec | bagWeight }},"min_order_pcs":{{ p.defaultSpec | minPcs(cfg.min_order_kg) }},"price_from":{{ pf.price }},"price_exact":{{ pf.exact }},"print_colors_max":{{ p.print_max }},"food_grade":{{ p.food }},"applications":{{ p.applications | json | safe }},"images":[{% for im in p.images %}{{ (cfg.base_url + '/' + im.src) | json | safe }}{% if not loop.last %},{% endif %}{% endfor %}]}{% if not loop.last %},{% endif %}
+{%- endfor -%}
+],"bestsellers":[
+{%- for b in bestsellers.items | where('active', true) -%}
+{"slug":{{ b.slug | json | safe }},"product":{{ b.product | json | safe }},"name":{{ b.name | json | safe }},"spec":{{ b.spec | json | safe }},"tiers":{{ b.tiers | json | safe }},"min_order_pcs":{{ b.spec | minPcs(cfg.min_order_kg) }}}{% if not loop.last %},{% endif %}
+{%- endfor -%}
+]}

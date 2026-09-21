@@ -1,0 +1,16 @@
+{
+  "name": "alphaplast-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Alpha Plast — multi-page B2B site (stage 1 static front-end per TZ 2026-09-21)",
+  "scripts": {
+    "build": "eleventy",
+    "build:pages": "cross-env PATH_PREFIX=/alphaplast-v2/ eleventy",
+    "serve": "eleventy --serve",
+    "serve:pages": "cross-env PATH_PREFIX=/alphaplast-v2/ eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "cross-env": "^7.0.3"
+  }
+}

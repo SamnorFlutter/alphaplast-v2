@@ -1,0 +1,41 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/links/"
+layout: base.njk
+noindex: true
+bodyClass: page-links
+eleventyComputed:
+  seoTitle: "{{ pages.links.title[lang] }}"
+  seoDesc: "{{ pages.links.one_line[lang] }}"
+---
+<section class="section links">
+  <div class="container narrow">
+    <div class="glass links-card">
+      <img class="links-logo" src="{{ '/assets/logo-full.png' | url }}" alt="{{ company.brand }}" width="160" height="160">
+      <p class="links-line">{{ pages.links.one_line | tr(lang) }}</p>
+      <a class="btn btn-primary btn-lg block" href="{{ (L + '/calculator/') | url }}?utm_source=linkpage&utm_medium=referral" data-event="links_calc">{{ T.cta.calc }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <div class="links-list">
+        {% for ph in company.phones %}<a class="glass link-row" href="tel:{{ company.phones_raw[loop.index0] }}" data-event="phone_click"><svg class="ic"><use href="#i-phone"/></svg><span>{{ ph }}</span></a>{% endfor %}
+        <a class="glass link-row" href="mailto:{{ company.email }}" data-event="email_click"><svg class="ic"><use href="#i-mail"/></svg><span>{{ company.email }}</span></a>
+        <a class="glass link-row" href="{{ company.telegram }}" rel="noopener" data-event="tg_click"><svg class="ic"><use href="#i-tg"/></svg><span>Telegram</span></a>
+        <a class="glass link-row" href="{{ company.instagram }}" rel="noopener" data-event="ig_click"><svg class="ic"><use href="#i-ig"/></svg><span>Instagram</span></a>
+        <a class="glass link-row" href="{{ company.youtube }}" rel="noopener" data-event="yt_click"><svg class="ic"><use href="#i-yt"/></svg><span>YouTube</span></a>
+        <a class="glass link-row" href="{{ (L + '/catalog/') | url }}?utm_source=linkpage&utm_medium=referral" data-event="links_catalog"><svg class="ic"><use href="#i-bag"/></svg><span>{{ T.nav.catalog }}</span></a>
+        <a class="glass link-row" href="{{ (L + '/portfolio/') | url }}?utm_source=linkpage&utm_medium=referral" data-event="links_portfolio"><svg class="ic"><use href="#i-star"/></svg><span>{{ T.nav.portfolio }}</span></a>
+      </div>
+      <p class="muted small">{{ T.common.on_maps }}</p>
+      <div class="map-btns center">
+        <a class="btn btn-glass btn-sm" href="{{ company.maps.yandex }}" rel="noopener" data-event="route_yandex">{{ T.common.map_yandex }}</a>
+        <a class="btn btn-glass btn-sm" href="{{ company.maps['2gis'] }}" rel="noopener" data-event="route_2gis">{{ T.common.map_2gis }}</a>
+        <a class="btn btn-glass btn-sm" href="{{ company.maps.google }}" rel="noopener" data-event="route_google">{{ T.common.map_google }}</a>
+      </div>
+      <a class="btn btn-glass block" href="{{ '/contact.vcf' | url }}" download data-event="vcard_save"><svg class="ic"><use href="#i-save"/></svg>{{ T.cta.save_contact }}</a>
+      <details class="req"><summary>{{ T.footer.requisites }}</summary><table class="table"><tbody>{% for r in company.requisites %}<tr><th>{{ r.label | tr(lang) }}</th><td>{% if r.todo %}<span class="muted">{{ T.footer.todo }}</span>{% else %}{{ r.value | tr(lang) }}{% endif %}</td></tr>{% endfor %}</tbody></table></details>
+      <p class="muted small">{{ company.address | tr(lang) }} · {{ company.hours | tr(lang) }}</p>
+    </div>
+  </div>
+</section>

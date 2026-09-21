@@ -1,0 +1,58 @@
+{# expects: compact (bool) #}
+<div class="glass calc {% if compact %}calc-compact{% endif %}" data-calc {% if compact %}data-compact{% endif %}>
+  <form class="calc-form" data-calc-form>
+    <div class="calc-grid">
+      <label class="field"><span>{{ T.calc.type }}</span>
+        <select name="type" data-c="type">
+          {% for key, label in T.calc.bag_types %}<option value="{{ key }}">{{ label }}</option>{% endfor %}
+        </select></label>
+      <label class="field"><span>{{ T.calc.material }}</span>
+        <select name="material" data-c="material">{% for key, label in T.calc.materials %}{% if key != 'SPP' %}<option value="{{ key }}">{{ label }}</option>{% endif %}{% endfor %}</select></label>
+      <label class="field" data-dim="bag"><span>{{ T.calc.width }}</span><input type="number" name="width" min="5" max="200" step="1" value="40" data-c="width" inputmode="numeric"></label>
+      <label class="field" data-dim="bag"><span>{{ T.calc.height }}</span><input type="number" name="height" min="5" max="200" step="1" value="50" data-c="height" inputmode="numeric"></label>
+      <label class="field" data-dim="bag"><span>{{ T.calc.bottom }}</span><input type="number" name="bottom" min="0" max="30" step="1" value="0" data-c="bottom" inputmode="numeric"></label>
+      <label class="field" data-dim="film" hidden><span>{{ T.calc.length }}</span><input type="number" name="length" min="1" max="5000" step="1" value="1" data-c="length" inputmode="numeric"></label>
+      <label class="field"><span>{{ T.calc.thickness }}</span><input type="number" name="thickness" min="6" max="200" step="1" value="60" data-c="thickness" inputmode="numeric"></label>
+      <label class="field"><span>{{ T.calc.base }}</span>
+        <select name="base" data-c="base">{% for key, label in T.calc.base_opts %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select></label>
+      <label class="field"><span>{{ T.calc.colors }}</span>
+        <select name="colors" data-c="colors"><option value="0">{{ T.calc.no_print }}</option>{% for i in range(1, 9) %}<option value="{{ i }}">{{ i }}</option>{% endfor %}</select></label>
+      <label class="field"><span>{{ T.calc.sides }}</span>
+        <select name="sides" data-c="sides"><option value="1">{{ T.calc.one_side }}</option><option value="2">{{ T.calc.two_sides }}</option></select></label>
+      {% if not compact %}
+      <label class="field"><span>{{ T.calc.urgent }}</span>
+        <select name="urgent" data-c="urgent"><option value="0">{{ T.calc.urgent_std }}</option><option value="1">{{ T.calc.urgent_fast }}</option></select></label>
+      <label class="field"><span>{{ T.calc.client_type }}</span>
+        <select name="client" data-c="client">{% for key, label in T.calc.client_opts %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select></label>
+      {% endif %}
+    </div>
+    <div class="calc-qty">
+      <label class="field"><span>{{ T.calc.qty }} <em class="muted" data-min-hint></em></span>
+        <div class="qty-row"><input type="number" name="qty" min="0" step="100" value="10000" data-c="qty" inputmode="numeric"><input type="range" name="qtyRange" min="0" max="200000" step="100" value="10000" data-c-range aria-label="{{ T.calc.qty }}"></div></label>
+      <p class="muted small">{{ T.calc.editable }}</p>
+    </div>
+  </form>
+  <aside class="calc-result" data-calc-result aria-live="polite">
+    <div class="result-head"><span class="eyebrow">{{ T.calc.result }}</span>{% if cfg.demo_mode %}<span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</div>
+    <div class="result-price"><span class="muted" data-r-label>{{ T.calc.range }}</span><div class="big" data-r-price>—</div><span class="muted small" data-r-hint></span></div>
+    <dl class="result-rows">
+      <div><dt>{{ T.calc.weight_pc }}</dt><dd><span data-r-g>—</span> {{ T.calc.g }}</dd></div>
+      <div><dt>{{ T.calc.weight_total }}</dt><dd><span data-r-kg>—</span> {{ T.calc.kg }}</dd></div>
+      <div><dt>{{ T.calc.min_order }}</dt><dd><span data-r-min>—</span> {{ T.calc.pcs }}</dd></div>
+      {% if not compact %}
+      <div><dt>{{ T.calc.subtotal }}</dt><dd><span data-r-sub>—</span> {{ T.calc.unit }}</dd></div>
+      <div><dt>{{ T.calc.vat }} <span data-r-vatrate></span></dt><dd><span data-r-vat>—</span> {{ T.calc.unit }}</dd></div>
+      <div class="total"><dt>{{ T.calc.total }}</dt><dd><span data-r-total>—</span> {{ T.calc.unit }}</dd></div>
+      {% endif %}
+    </dl>
+    <div class="result-warn" data-r-warn hidden><p data-r-warn-text></p><button type="button" class="btn btn-glass btn-sm" data-fill-min>{{ T.cta.fill_min }}</button><p class="muted small">{{ T.calc.why_min }}</p></div>
+    <div class="result-actions">
+      {% if compact %}
+      <a class="btn btn-primary" href="{{ (L + '/calculator/') | url }}" data-open-full>{{ T.cta.open_calc }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+      {% else %}
+      <a class="btn btn-primary" href="{{ (L + '/order/') | url }}" data-order-link data-event="checkout_start">{{ T.cta.order }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+      {% endif %}
+    </div>
+    {% if cfg.demo_mode %}<p class="muted small calc-note">{{ T.demo.calc_note }}</p>{% endif %}
+  </aside>
+</div>

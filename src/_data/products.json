@@ -1,0 +1,152 @@
+{
+  "_comment": "Catalog items. DEMO sizes/thicknesses are typical industry values until the technologist approves (see README). Photos = real items from the customer; placeholder=true renders an SVG silhouette instead of a stock photo (TZ forbids stock).",
+  "items": [
+    {
+      "slug": "maika-pnd", "category": "maika", "type": "maika", "form": "bag", "order": 1, "bestseller": true,
+      "name": { "ru": "Пакет-майка ПНД с печатью", "uz": "Bosmali PND mayka paket" },
+      "short": { "ru": "Лёгкий шуршащий пакет для розницы, ручки из полотна", "uz": "Chakana savdo uchun yengil shitirlaydigan paket, dastasi matodan" },
+      "desc": { "ru": "Пакет-майка из ПНД — базовая упаковка магазина: держит покупку среднего веса, стоит копейки в пересчёте на штуку и несёт логотип флексопечатью до 8 цветов. Размер задаётся по ширине полотна и полной высоте с ручками.", "uz": "PND mayka paket — do'konning asosiy qadog'i: o'rtacha og'irlikdagi xaridni ushlaydi, donaga hisoblaganda arzon va 8 ranggacha fleksobosmali logotipni olib yuradi. O'lcham mato eni va dastalar bilan to'liq bo'yi bo'yicha beriladi." },
+      "images": [ { "src": "assets/product-maika.jpg", "alt": { "ru": "Серый пакет-майка ПНД с двухцветной печатью логотипа магазина игрушек Panda toys", "uz": "Panda toys o'yinchoqlar do'koni logotipi ikki rangda bosilgan kulrang PND mayka paket" } } ],
+      "materials": ["PND"],
+      "defaultSpec": { "type": "maika", "width": 30, "height": 55, "bottom": 0, "thickness": 18, "material": "PND", "base": "white", "colors": 1, "sides": 1 },
+      "sizes": [ { "width": 25, "height": 45, "bottom": 0, "thickness": [12, 15, 18] }, { "width": 30, "height": 55, "bottom": 0, "thickness": [15, 18, 22] }, { "width": 38, "height": 60, "bottom": 0, "thickness": [18, 22, 26] }, { "width": 45, "height": 70, "bottom": 0, "thickness": [22, 26, 30] } ],
+      "thickness_options": [12, 15, 18, 22, 26, 30],
+      "applications": ["food", "clothing", "pharmacy"],
+      "niches": ["grocery", "pharmacy", "clothing"],
+      "load": "3-10", "food": false, "print_max": 8
+    },
+    {
+      "slug": "pvd-die-cut", "category": "pvd", "type": "pvd", "form": "bag", "order": 2, "bestseller": true,
+      "name": { "ru": "Пакет ПВД с вырубной ручкой", "uz": "Kesilgan dastali PVD paket" },
+      "short": { "ru": "Плотный глянцевый пакет с усиленной прорубной ручкой", "uz": "Mustahkamlangan kesilgan dastali zich yaltiroq paket" },
+      "desc": { "ru": "Классический брендированный пакет: плотная плёнка ПВД, большая площадь под печать, аккуратная вырубная ручка с усилением. Основа белая, прозрачная или цветная в массе. Формат для бутиков, клиник, аптек, кондитерских и маркетплейсов.", "uz": "Klassik brendlangan paket: zich PVD plyonka, bosma uchun katta maydon, mustahkamlangan kesilgan dasta. Asos oq, shaffof yoki massada rangli. Butiklar, klinikalar, dorixonalar, qandolatxonalar va marketpleyslar uchun format." },
+      "images": [
+        { "src": "assets/product-06.jpg", "alt": { "ru": "Красный пакет ПВД с вырубной ручкой Yandex Market с жёлтыми молниями", "uz": "Sariq chaqmoqli qizil Yandex Market kesilgan dastali PVD paket" } },
+        { "src": "assets/product-01.jpg", "alt": { "ru": "Белый пакет ПВД с вырубной ручкой стоматологии RISUS, печать синим в один цвет", "uz": "RISUS stomatologiyasining oq kesilgan dastali PVD paketi, ko'k bir rangli bosma" } },
+        { "src": "assets/product-05.jpg", "alt": { "ru": "Белый пакет ПВД с вырубной ручкой Bread Samarkand Duty Free, печать чёрным и жёлтым", "uz": "Bread Samarkand Duty Free oq kesilgan dastali PVD paketi, qora va sariq bosma" } }
+      ],
+      "materials": ["PVD"],
+      "defaultSpec": { "type": "pvd", "width": 40, "height": 50, "bottom": 0, "thickness": 60, "material": "PVD", "base": "white", "colors": 2, "sides": 1 },
+      "sizes": [ { "width": 30, "height": 40, "bottom": 0, "thickness": [40, 50, 60] }, { "width": 40, "height": 50, "bottom": 0, "thickness": [50, 60, 80] }, { "width": 50, "height": 60, "bottom": 5, "thickness": [60, 80, 100] } ],
+      "thickness_options": [40, 50, 60, 80, 100],
+      "applications": ["clothing", "pharmacy", "delivery"],
+      "niches": ["clothing", "pharmacy", "electronics", "grocery", "delivery"],
+      "load": "3-10", "food": false, "print_max": 8
+    },
+    {
+      "slug": "pvd-loop", "category": "pvd", "type": "loop", "form": "bag", "order": 3, "bestseller": true,
+      "name": { "ru": "Пакет ПВД с петлевой ручкой", "uz": "Ilmoqli dastali PVD paket" },
+      "short": { "ru": "Премиальный пакет с вваренной мягкой ручкой для одежды и обуви", "uz": "Kiyim va poyabzal uchun payvandlangan yumshoq dastali premium paket" },
+      "desc": { "ru": "Петлевая ручка — отдельная полоса плёнки, вваренная в верх пакета: выдерживает больший вес, чем вырубная, и выглядит дороже. Толстая плёнка ПВД, донная складка, печать до 8 цветов. Так сделан пакет Skechers Performance из нашего портфолио.", "uz": "Ilmoqli dasta — paket yuqorisiga payvandlangan alohida plyonka tasmasi: kesilgan dastadan ko'proq yukni ushlaydi va qimmatroq ko'rinadi. Qalin PVD plyonka, tag buklamasi, 8 ranggacha bosma. Portfoliomizdagi Skechers Performance paketi shunday qilingan." },
+      "images": [ { "src": "assets/product-skechers.jpg", "alt": { "ru": "Белый пакет ПВД с петлевой ручкой Skechers Performance, чёрная печать логотипа и адресов магазинов", "uz": "Skechers Performance oq ilmoqli dastali PVD paketi, logotip va do'kon manzillarining qora bosmasi" } } ],
+      "materials": ["PVD"],
+      "defaultSpec": { "type": "loop", "width": 40, "height": 50, "bottom": 0, "thickness": 80, "material": "PVD", "base": "white", "colors": 1, "sides": 1 },
+      "sizes": [ { "width": 30, "height": 40, "bottom": 0, "thickness": [60, 80] }, { "width": 40, "height": 50, "bottom": 0, "thickness": [80, 100] }, { "width": 45, "height": 55, "bottom": 8, "thickness": [80, 100, 120] } ],
+      "thickness_options": [60, 80, 100, 120],
+      "applications": ["clothing"],
+      "niches": ["clothing", "electronics"],
+      "load": "gt10", "food": false, "print_max": 8
+    },
+    {
+      "slug": "courier-flap", "category": "pvd", "type": "courier", "form": "bag", "order": 4, "bestseller": true,
+      "name": { "ru": "Курьерский пакет с клеевым клапаном", "uz": "Yelimli klapanli kuryer paket" },
+      "short": { "ru": "Непрозрачный пакет для доставки с защитой от вскрытия", "uz": "Ochilishdan himoyalangan shaffof bo'lmagan yetkazib berish paketi" },
+      "desc": { "ru": "Пакет для служб доставки и интернет-магазинов: белая или цветная непрозрачная основа, клеевой клапан, который запечатывает отправление без скотча, печать логотипа, телефонов и QR-кода. Так сделаны пакеты UZPOST и EMU.", "uz": "Yetkazib berish xizmatlari va internet-do'konlar uchun paket: oq yoki rangli shaffof bo'lmagan asos, jo'natmani skotchsiz muhrlaydigan yelimli klapan, logotip, telefon va QR-kod bosmasi. UZPOST va EMU paketlari shunday qilingan." },
+      "images": [
+        { "src": "assets/product-03.jpg", "alt": { "ru": "Курьерский пакет UZPOST с синими полосами и оранжевым логотипом", "uz": "Ko'k chiziqli va to'q sariq logotipli UZPOST kuryer paketi" } },
+        { "src": "assets/product-02.jpg", "alt": { "ru": "Курьерский пакет EMU Экспресс почта с оранжево-фиолетовой печатью и QR-кодом", "uz": "To'q sariq-binafsha bosma va QR-kodli EMU Ekspress pochta kuryer paketi" } }
+      ],
+      "materials": ["PVD"],
+      "defaultSpec": { "type": "courier", "width": 30, "height": 40, "bottom": 0, "thickness": 60, "material": "PVD", "base": "white", "colors": 2, "sides": 1 },
+      "sizes": [ { "width": 24, "height": 32, "bottom": 0, "thickness": [50, 60] }, { "width": 30, "height": 40, "bottom": 0, "thickness": [50, 60, 80] }, { "width": 40, "height": 50, "bottom": 0, "thickness": [60, 80] } ],
+      "thickness_options": [50, 60, 80],
+      "applications": ["delivery"],
+      "niches": ["delivery", "electronics"],
+      "load": "3-10", "food": false, "print_max": 8
+    },
+    {
+      "slug": "roll-fasovka", "category": "food", "type": "roll", "form": "bag", "order": 5, "bestseller": false,
+      "name": { "ru": "Пакеты в рулоне с печатью", "uz": "Bosmali rulonli paketlar" },
+      "short": { "ru": "Прозрачные пакеты с отрывной перфорацией для хлеба и фасовки", "uz": "Non va fasovka uchun uzib olinadigan perforatsiyali shaffof paketlar" },
+      "desc": { "ru": "Тонкие прозрачные пакеты ПНД в рулоне с перфорацией: ставятся на держатель в торговом зале или на линии фасовки. Печать логотипа в 1–2 цвета — как на пакетах для хлеба Donar и Uzbechka. Материал с пищевым допуском.", "uz": "Perforatsiyali rulondagi yupqa shaffof PND paketlar: savdo zalidagi ushlagichga yoki fasovka liniyasiga qo'yiladi. 1–2 rangli logotip bosmasi — Donar va Uzbechka non paketlaridagi kabi. Oziq-ovqat ruxsatli material." },
+      "images": [ { "src": "assets/product-04.jpg", "alt": { "ru": "Рулоны прозрачных пакетов с печатью логотипов Donar и Uzbechka для хлеба", "uz": "Non uchun Donar va Uzbechka logotiplari bosilgan shaffof paketlar rulonlari" } } ],
+      "materials": ["PND"],
+      "defaultSpec": { "type": "roll", "width": 25, "height": 35, "bottom": 0, "thickness": 10, "material": "PND", "base": "transparent", "colors": 1, "sides": 1 },
+      "sizes": [ { "width": 20, "height": 30, "bottom": 0, "thickness": [8, 10, 12] }, { "width": 25, "height": 35, "bottom": 0, "thickness": [8, 10, 12] }, { "width": 30, "height": 40, "bottom": 0, "thickness": [10, 12, 15] } ],
+      "thickness_options": [8, 10, 12, 15],
+      "applications": ["food"],
+      "niches": ["grocery", "horeca"],
+      "load": "lt3", "food": true, "print_max": 4
+    },
+    {
+      "slug": "fasovka-pnd", "category": "food", "type": "fasovka", "form": "bag", "order": 6, "bestseller": false, "placeholder": true,
+      "name": { "ru": "Фасовочные пакеты ПНД", "uz": "PND fasovka paketlar" },
+      "short": { "ru": "Тонкие пакеты без ручек пачками для весовых продуктов", "uz": "Tortiladigan mahsulotlar uchun bog'lamdagi dastasiz yupqa paketlar" },
+      "desc": { "ru": "Пакеты без ручек в пачках: для выпечки, овощей, круп, полуфабрикатов. Прозрачная плёнка ПНД с пищевым допуском, толщина под вес продукта. Печать по желанию — 1–2 цвета.", "uz": "Bog'lamdagi dastasiz paketlar: pishiriq, sabzavot, yorma, yarim tayyor mahsulotlar uchun. Oziq-ovqat ruxsatli shaffof PND plyonka, qalinlik mahsulot og'irligiga mos. Ixtiyoriy bosma — 1–2 rang." },
+      "images": [],
+      "materials": ["PND"],
+      "defaultSpec": { "type": "fasovka", "width": 25, "height": 40, "bottom": 0, "thickness": 10, "material": "PND", "base": "transparent", "colors": 0, "sides": 1 },
+      "sizes": [ { "width": 18, "height": 27, "bottom": 0, "thickness": [8, 10] }, { "width": 25, "height": 40, "bottom": 0, "thickness": [8, 10, 12] }, { "width": 30, "height": 50, "bottom": 0, "thickness": [10, 12, 15] } ],
+      "thickness_options": [8, 10, 12, 15],
+      "applications": ["food"],
+      "niches": ["grocery", "horeca"],
+      "load": "lt3", "food": true, "print_max": 2
+    },
+    {
+      "slug": "sleeve-pvd", "category": "pvd", "type": "sleeve", "form": "film", "order": 7, "bestseller": false, "placeholder": true,
+      "name": { "ru": "Рукав и полурукав ПВД", "uz": "PVD yeng va yarim yeng" },
+      "short": { "ru": "Плёнка в рулоне для упаковки на автоматах и вручную", "uz": "Avtomatlarda va qo'lda qadoqlash uchun rulondagi plyonka" },
+      "desc": { "ru": "Рукав — сплошная плёночная труба в рулоне, полурукав — сложенное вдвое полотно. Из них режут пакеты на упаковочных автоматах или упаковывают крупные изделия вручную. Ширина и толщина под вашу линию, печать до 8 цветов.", "uz": "Yeng — rulondagi yaxlit plyonka trubasi, yarim yeng — ikki buklangan mato. Ulardan qadoqlash avtomatlarida paketlar kesiladi yoki yirik mahsulotlar qo'lda qadoqlanadi. Eni va qalinligi sizning liniyangizga mos, 8 ranggacha bosma." },
+      "images": [],
+      "materials": ["PVD", "PND"],
+      "defaultSpec": { "type": "sleeve", "form": "film", "width": 50, "length": 1, "thickness": 60, "material": "PVD", "base": "transparent", "colors": 0, "sides": 1 },
+      "sizes": [ { "width": 30, "length": 1, "thickness": [40, 60, 80] }, { "width": 50, "length": 1, "thickness": [60, 80, 100] }, { "width": 80, "length": 1, "thickness": [80, 100, 120] } ],
+      "thickness_options": [40, 60, 80, 100, 120],
+      "applications": ["construction", "food"],
+      "niches": ["manufacturing"],
+      "load": "gt10", "food": false, "print_max": 8, "unit": "m"
+    },
+    {
+      "slug": "stretch-hood-film", "category": "stretch-hood", "type": "hood", "form": "film", "order": 8, "bestseller": false, "placeholder": true,
+      "name": { "ru": "Стрейч-худ плёнка", "uz": "Streych-xud plyonka" },
+      "short": { "ru": "Эластичный рукав-чехол для паллет с водой и стройматериалами", "uz": "Suv va qurilish materiallari palletlari uchun elastik yeng-g'ilof" },
+      "desc": { "ru": "Многослойный эластичный рукав для машин стрейч-худ: растягивается, надевается на паллет и обжимает груз с пяти сторон. Подбирается по размеру паллета, высоте штабеля и модели машины. Печать логотипа в 1–2 цвета.", "uz": "Streych-xud mashinalari uchun ko'p qatlamli elastik yeng: cho'ziladi, palletga kiydiriladi va yukni besh tomondan siqadi. Pallet o'lchami, shtabel balandligi va mashina modeliga qarab tanlanadi. 1–2 rangli logotip bosmasi." },
+      "images": [],
+      "materials": ["PVD"],
+      "defaultSpec": { "type": "hood", "form": "film", "width": 120, "length": 1, "thickness": 100, "material": "PVD", "base": "transparent", "colors": 0, "sides": 1 },
+      "sizes": [ { "width": 100, "length": 1, "thickness": [80, 100] }, { "width": 120, "length": 1, "thickness": [100, 120] }, { "width": 140, "length": 1, "thickness": [100, 120, 150] } ],
+      "thickness_options": [80, 100, 120, 150],
+      "applications": ["water", "construction"],
+      "niches": ["manufacturing"],
+      "load": "gt10", "food": false, "print_max": 2, "unit": "m"
+    },
+    {
+      "slug": "stretch-film", "category": "stretch", "type": "film", "form": "film", "order": 9, "bestseller": false, "placeholder": true,
+      "name": { "ru": "Стрейч-плёнка паллетная", "uz": "Pallet streych plyonkasi" },
+      "short": { "ru": "Ручная и машинная плёнка для обмотки паллет", "uz": "Palletlarni o'rash uchun qo'l va mashina plyonkasi" },
+      "desc": { "ru": "Растягивающаяся плёнка для фиксации грузов на паллете: ручные рулоны для склада и машинные — для паллетообмотчиков. Ширина и толщина под вашу задачу; расход на паллет посчитает технолог.", "uz": "Palletdagi yuklarni mahkamlash uchun cho'ziluvchan plyonka: ombor uchun qo'l rulonlari va pallet o'ragichlar uchun mashina rulonlari. Eni va qalinligi vazifangizga mos; palletga sarfni texnolog hisoblaydi." },
+      "images": [],
+      "materials": ["PVD"],
+      "defaultSpec": { "type": "film", "form": "film", "width": 50, "length": 1, "thickness": 20, "material": "PVD", "base": "transparent", "colors": 0, "sides": 1 },
+      "sizes": [ { "width": 45, "length": 1, "thickness": [17, 20, 23] }, { "width": 50, "length": 1, "thickness": [17, 20, 23] } ],
+      "thickness_options": [17, 20, 23],
+      "applications": ["water", "construction", "delivery"],
+      "niches": ["manufacturing", "delivery"],
+      "load": "gt10", "food": false, "print_max": 0, "unit": "m"
+    },
+    {
+      "slug": "garbage-bags", "category": "stretch", "type": "garbage", "form": "bag", "order": 10, "bestseller": false, "placeholder": true,
+      "name": { "ru": "Мусорные мешки ПНД/ПВД", "uz": "PND/PVD axlat qoplari" },
+      "short": { "ru": "Мешки для отходов в рулонах и пачками, от офиса до стройки", "uz": "Ofisdan qurilishgacha rulonda va bog'lamda chiqindi qoplari" },
+      "desc": { "ru": "Мешки из ПНД — тонкие и прочные на разрыв, из ПВД — эластичные и стойкие к проколу для строительного мусора. Чёрный цвет или по запросу, печать логотипа в 1–2 цвета для клининга и сетей.", "uz": "PND qoplar — yupqa va yirtilishga mustahkam, PVD — qurilish chiqindisi uchun elastik va teshilishga chidamli. Qora rang yoki so'rov bo'yicha, klining va tarmoqlar uchun 1–2 rangli logotip bosmasi." },
+      "images": [],
+      "materials": ["PND", "PVD"],
+      "defaultSpec": { "type": "garbage", "width": 50, "height": 60, "bottom": 0, "thickness": 15, "material": "PND", "base": "colored", "colors": 0, "sides": 1 },
+      "sizes": [ { "width": 50, "height": 60, "bottom": 0, "thickness": [10, 15, 20] }, { "width": 60, "height": 80, "bottom": 0, "thickness": [20, 30] }, { "width": 70, "height": 110, "bottom": 0, "thickness": [30, 40, 50] } ],
+      "thickness_options": [10, 15, 20, 30, 40, 50],
+      "applications": ["construction"],
+      "niches": ["horeca", "manufacturing"],
+      "load": "gt10", "food": false, "print_max": 2
+    }
+  ]
+}

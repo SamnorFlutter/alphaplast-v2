@@ -1,0 +1,19 @@
+---
+permalink: /404.html
+layout: base.njk
+lang: ru
+noindex: true
+eleventyExcludeFromCollections: true
+seoTitle: "404 — Alpha Plast"
+---
+<section class="section page-head">
+  <div class="container narrow center-text">
+    <div class="glass tile center">
+      <b class="big">404</b>
+      <span class="tile-title">{{ pages.notfound.title.ru }} / {{ pages.notfound.title.uz }}</span>
+      <span class="tile-desc muted">{{ pages.notfound.text.ru }}</span>
+      <span class="tile-desc muted">{{ pages.notfound.text.uz }}</span>
+      <div class="hero-cta"><a class="btn btn-primary" href="{{ '/ru/' | url }}">{{ t.ru.common.go_home }}</a><a class="btn btn-glass" href="{{ '/uz/' | url }}">{{ t.uz.common.go_home }}</a></div>
+    </div>
+  </div>
+</section>

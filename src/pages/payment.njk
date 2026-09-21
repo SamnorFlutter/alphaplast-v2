@@ -1,0 +1,47 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/payment/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ pages.payment.seo_title[lang] }}"
+  seoDesc: "{{ pages.payment.seo_desc[lang] }}"
+---
+{%- set P = pages.payment -%}
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.payment, "url": L + "/payment/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ P.h1 | tr(lang) }}</h1>
+    <p class="sub">{{ P.intro | tr(lang) }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>{{ P.scheme_title | tr(lang) }}</h2>
+    <ol class="steps">{% for s in P.steps %}<li class="glass step reveal"><span class="step-n">{{ loop.index }}</span><span>{{ s | tr(lang) }}</span></li>{% endfor %}</ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid grid-2">
+    <div class="glass tile"><span class="tile-title">{{ P.methods_title | tr(lang) }}</span>{% for m in P.methods %}<div class="method"><b>{{ m.title | tr(lang) }}{% if m.soon %} <span class="badge">{{ 'этап 2' if lang == 'ru' else '2-bosqich' }}</span>{% endif %}</b><span class="muted">{{ m.text | tr(lang) }}</span></div>{% endfor %}</div>
+    <div class="glass tile"><span class="tile-title">{{ P.docs_title | tr(lang) }}</span><span class="tile-desc">{{ P.docs_text | tr(lang) }}</span><a class="tile-link" href="{{ (L + '/oferta/') | url }}">{{ T.footer.oferta }} →</a></div>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid grid-2">
+    <div class="glass tile"><span class="tile-icon"><svg class="ic"><use href="#i-truck"/></svg></span><span class="tile-title">{{ P.delivery_title | tr(lang) }}</span><span class="tile-desc">{{ P.delivery_text | tr(lang) }}</span></div>
+    <div class="glass tile"><span class="tile-icon"><svg class="ic"><use href="#i-pin"/></svg></span><span class="tile-title">{{ P.pickup_title | tr(lang) }}</span><span class="tile-desc">{{ P.pickup_text | tr(lang) }}</span>
+      <div class="map-btns"><a class="btn btn-glass btn-sm" href="{{ company.maps.yandex }}" rel="noopener" data-event="route_yandex">{{ T.common.map_yandex }}</a><a class="btn btn-glass btn-sm" href="{{ company.maps['2gis'] }}" rel="noopener" data-event="route_2gis">{{ T.common.map_2gis }}</a><a class="btn btn-glass btn-sm" href="{{ company.maps.google }}" rel="noopener" data-event="route_google">{{ T.common.map_google }}</a></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="faq">{% for f in P.faq %}<details class="glass faq-item"><summary>{{ f.q | tr(lang) }}</summary><p>{{ f.a | tr(lang) }}</p></details>{% endfor %}</div>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in P.faq %}{"@type":"Question","name":{{ f.q | tr(lang) | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | tr(lang) | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+  </div>
+</section>

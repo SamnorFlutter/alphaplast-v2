@@ -1,0 +1,53 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/clients/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ T.clients.title }} — Alpha Plast"
+  seoDesc: "{{ T.clients.sub }}"
+---
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.clients, "url": L + "/clients/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ T.clients.title }}</h1>
+    <p class="sub">{{ T.clients.sub }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3 clients-grid">
+      {% for c in clients.items %}{% set w = portfolio.items | find('id', c.work) if c.work else null %}{% set n = niches.items | find('key', c.niche) %}
+      <article class="glass card client-card reveal">
+        <div class="card-media photo small">{% if w %}<img src="{{ ('/' + w.image) | url }}" alt="{{ w.alt | tr(lang) }}" loading="lazy" width="300" height="300">{% elif c.letter %}<img src="{{ ('/' + c.letter) | url }}" alt="{{ c.letter_note | tr(lang) }}" loading="lazy" width="300" height="420">{% endif %}</div>
+        <div class="card-body">
+          <h3>{{ c.name }}</h3>
+          <dl class="specs">
+            <div><dt>{{ T.clients.niche }}</dt><dd>{{ n.label | tr(lang) if n else c.niche }}</dd></div>
+            {% if w %}<div><dt>{{ T.clients.work }}</dt><dd><a href="{{ (L + '/portfolio/') | url }}#{{ w.id }}">{{ T.calc.bag_types[w.calc.type] }}, {{ w.colors }} {{ T.portfolio.colors }}</a></dd></div>{% endif %}
+            {% if c.letter %}<div><dt>{{ T.clients.letter }}</dt><dd><a href="{{ ('/' + c.letter_pdf) | url }}" target="_blank" rel="noopener">{{ T.clients.open_letter }}</a></dd></div>{% endif %}
+          </dl>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="muted small">{{ T.clients.note }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>{{ T.clients.thanks }}</h2>
+    <p class="sub">{{ T.clients.thanks_sub }}</p>
+    <div class="grid grid-2 letters">
+      {% for c in clients.items | where('source', 'letter') %}
+      <a class="glass card letter reveal" href="{{ ('/' + c.letter_pdf) | url }}" target="_blank" rel="noopener">
+        <span class="card-media photo tall"><img src="{{ ('/' + c.letter) | url }}" alt="{{ c.letter_note | tr(lang) }}" loading="lazy" width="600" height="850"></span>
+        <span class="card-body"><b>{{ c.name }}</b><span class="muted">{{ c.letter_note | tr(lang) }}</span></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

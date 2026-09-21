@@ -1,0 +1,21 @@
+---
+pagination:
+  data: cfg.go_links
+  size: 1
+  alias: gokey
+  addAllPagesToCollections: true
+permalink: "/go/{{ gokey }}/"
+eleventyExcludeFromCollections: true
+---
+{%- set target = ('/ru/' | url) + '?' + cfg.go_links[gokey] -%}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Alpha Plast</title>
+<script>(function(){var l='ru';try{var s=localStorage.getItem('ap-lang');if(s==='uz'||s==='ru')l=s;}catch(e){}location.replace('{{ "/" | url }}'+l+'/?{{ cfg.go_links[gokey] }}');})();</script>
+<meta http-equiv="refresh" content="0; url={{ target }}">
+</head>
+<body><a href="{{ target }}">Alpha Plast</a></body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "base_url": "https://samnorflutter.github.io/alphaplast-v2",
+  "site_name": "Alpha Plast",
+  "default_lang": "ru",
+  "demo_mode": true,
+  "min_order_kg": 200,
+  "telegram_login_bot": "alphaplast_leads_bot",
+  "gtm_id": "",
+  "ga_id": "",
+  "metrika_id": "",
+  "yandex_map_widget": "https://yandex.uz/map-widget/v1/?um=constructor%3A21b1949bf19c22b290bdba949592b20fb6f22e3ab86c7ff302b187a32d6dab98&source=constructor",
+  "youtube_video_id": "H0NhxhbwdpQ",
+  "utm_cookie_days": 90,
+  "go_links": {
+    "yandex": "utm_source=yandex_maps&utm_medium=organic&utm_campaign=profile",
+    "2gis": "utm_source=2gis&utm_medium=organic&utm_campaign=profile",
+    "google": "utm_source=google_maps&utm_medium=organic&utm_campaign=profile",
+    "ig": "utm_source=instagram&utm_medium=social&utm_campaign=bio",
+    "tg": "utm_source=telegram&utm_medium=social&utm_campaign=channel",
+    "yt": "utm_source=youtube&utm_medium=social&utm_campaign=description",
+    "links": "utm_source=linkpage&utm_medium=referral"
+  }
+}

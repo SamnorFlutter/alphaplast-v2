@@ -1,0 +1,70 @@
+---
+pagination:
+  data: langs
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/about/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ pages.about.seo_title[lang] }}"
+  seoDesc: "{{ pages.about.seo_desc[lang] }}"
+---
+{%- set A = pages.about -%}
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.about, "url": L + "/about/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <h1>{{ A.h1 | tr(lang) }}</h1>
+    <p class="sub">{{ A.intro | tr(lang) }}</p>
+    <ul class="hero-facts glass inline-facts">
+      <li><b>{{ company.facts.bags_total }}</b><span>{{ T.hero.facts.bags }}</span></li>
+      <li><b>{{ company.facts.clients }}</b><span>{{ T.hero.facts.clients }}</span></li>
+      <li><b>{{ company.facts.projects }}</b><span>{{ T.hero.facts.projects }}</span></li>
+      <li><b>{{ T.common.since }}</b><span>{{ T.common.tashkent }}</span></li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid grid-3">
+    {% for b in A.blocks %}<div class="glass tile reveal"><span class="tile-title">{{ b.title | tr(lang) }}</span><span class="tile-desc">{{ b.text | tr(lang) }}</span></div>{% endfor %}
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="sec-head"><div><div class="eyebrow">{{ T.nav.about }}</div><h2>{{ A.proof_title | tr(lang) }}</h2><p class="sub">{{ A.proof_sub | tr(lang) }}</p></div></div>
+    <div class="proof-grid">
+      <div class="glass video" data-video="{{ cfg.youtube_video_id }}">
+        <button type="button" class="video-facade" data-video-play aria-label="{{ T.cta.watch }}">
+          <img src="https://i.ytimg.com/vi/{{ cfg.youtube_video_id }}/hqdefault.jpg" alt="{{ T.cta.watch }}" loading="lazy" width="480" height="360">
+          <span class="play"><svg class="ic"><use href="#i-play"/></svg></span>
+          <span class="video-label">{{ T.cta.watch }}</span>
+        </button>
+      </div>
+      <div class="proof-side">
+        <div class="glass tile"><span class="tile-icon"><svg class="ic"><use href="#i-doc"/></svg></span><span class="tile-title">{{ A.trademark.title | tr(lang) }}</span><span class="tile-desc muted">{{ A.trademark.text | tr(lang) }}</span><a class="tile-link" href="{{ '/assets/cert-guvohnoma-1.pdf' | url }}" target="_blank" rel="noopener">Guvohnoma № MGU 56687 (PDF) →</a></div>
+        <div class="glass tile"><span class="tile-icon"><svg class="ic"><use href="#i-pin"/></svg></span><span class="tile-title">{{ A.visit.title | tr(lang) }}</span><span class="tile-desc muted">{{ A.visit.text | tr(lang) }}</span><a class="tile-link" href="{{ company.telegram }}" rel="noopener" data-event="tg_click">{{ T.cta.tg }} →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>{{ A.docs_title | tr(lang) }}</h2>
+    <div class="grid grid-4 docs">
+      <a class="glass card doc reveal" href="{{ '/assets/cert-guvohnoma-1.pdf' | url }}" target="_blank" rel="noopener"><span class="card-media photo tall"><img src="{{ '/assets/cert-guvohnoma-1.png' | url }}" alt="Guvohnoma MGU 56687" loading="lazy" width="400" height="560"></span><span class="card-body"><b>Guvohnoma № MGU 56687</b><span class="muted">{{ A.trademark.text | tr(lang) }}</span></span></a>
+      <a class="glass card doc reveal" href="{{ '/assets/cert-guvohnoma-2.pdf' | url }}" target="_blank" rel="noopener"><span class="card-media photo tall"><img src="{{ '/assets/cert-guvohnoma-2.png' | url }}" alt="Guvohnoma MGU 56687 — ilova" loading="lazy" width="400" height="560"></span><span class="card-body"><b>MGU 56687 — {{ 'приложение' if lang == 'ru' else 'ilova' }}</b><span class="muted">MKTU 16</span></span></a>
+      {% for c in clients.items | where('source', 'letter') %}
+      <a class="glass card doc reveal" href="{{ ('/' + c.letter_pdf) | url }}" target="_blank" rel="noopener"><span class="card-media photo tall"><img src="{{ ('/' + c.letter) | url }}" alt="{{ c.letter_note | tr(lang) }}" loading="lazy" width="400" height="560"></span><span class="card-body"><b>{{ c.name }}</b><span class="muted">{{ c.letter_note | tr(lang) }}</span></span></a>
+      {% endfor %}
+    </div>
+    <p class="muted small">{{ A.contract_note | tr(lang) }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="glass tile">
+      <span class="tile-title">{{ T.footer.requisites }}</span>
+      <table class="table"><tbody>{% for r in company.requisites %}<tr><th>{{ r.label | tr(lang) }}</th><td>{% if r.todo %}<span class="muted">{{ T.footer.todo }}</span>{% else %}{{ r.value | tr(lang) }}{% endif %}</td></tr>{% endfor %}</tbody></table>
+    </div>
+  </div>
+</section>

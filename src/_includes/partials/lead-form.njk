@@ -1,0 +1,38 @@
+{# expects: formId, optional presetSpec (string), presetProduct (slug), formTitle, formSub #}
+<div class="glass lead-box" id="{{ formId }}">
+  <div class="lead-head">
+    <h2>{{ formTitle or T.form.title }}</h2>
+    <p class="muted">{{ formSub or T.form.sub }}</p>
+  </div>
+  <form class="lead-form" data-lead-form novalidate>
+    <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="page" value="{{ page.url }}">
+    <input type="hidden" name="lang" value="{{ lang }}">
+    <input type="hidden" name="niche" value="">
+    <input type="hidden" name="utm_first" value="">
+    <input type="hidden" name="utm_last" value="">
+    <input type="hidden" name="referrer" value="">
+    <input type="hidden" name="landing" value="">
+    <div class="grid-2">
+      <label class="field"><span>{{ T.form.name }} *</span><input type="text" name="name" required autocomplete="name"></label>
+      <label class="field"><span>{{ T.form.phone }} *</span><input type="tel" name="phone" required inputmode="tel" placeholder="+998" autocomplete="tel"></label>
+    </div>
+    <label class="field"><span>{{ T.form.company }}</span><input type="text" name="company" autocomplete="organization"><small class="muted">{{ T.form.company_hint }}</small></label>
+    <div class="grid-2">
+      <label class="field"><span>{{ T.form.spec }}</span><input type="text" name="spec" value="{{ presetSpec }}" data-spec-field></label>
+      <label class="field"><span>{{ T.form.qty }}</span><input type="number" name="qty" min="0" step="100" inputmode="numeric" data-qty-field></label>
+    </div>
+    <label class="field"><span>{{ T.form.comment }}</span><textarea name="comment" rows="3"></textarea></label>
+    <label class="field file"><span>{{ T.form.file }}</span><input type="file" name="logo" accept=".ai,.eps,.pdf,.svg,.png"><small class="muted">{{ T.form.file_hint }}</small></label>
+    <input type="hidden" name="product" value="{{ presetProduct }}">
+    <div class="lead-actions">
+      <button type="submit" class="btn btn-primary btn-lg" data-submit>{{ T.form.submit }} <svg class="ic"><use href="#i-arrow"/></svg></button>
+      <small class="muted consent">{{ T.form.consent }} — <a href="{{ (L + '/privacy/') | url }}">{{ T.footer.privacy }}</a></small>
+    </div>
+    <div class="form-msg" data-form-msg hidden></div>
+  </form>
+  <div class="lead-next">
+    <h3>{{ T.form.what_next }}</h3>
+    <ol><li>{{ T.form.next_1 }}</li><li>{{ T.form.next_2 }}</li><li>{{ T.form.next_3 }}</li></ol>
+  </div>
+</div>

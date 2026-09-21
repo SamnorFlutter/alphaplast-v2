@@ -1,0 +1,112 @@
+---
+pagination:
+  data: productPages
+  size: 1
+  alias: pp
+  addAllPagesToCollections: true
+permalink: "/{{ pp.lang }}/product/{{ pp.slug }}/"
+layout: base.njk
+eleventyComputed:
+  seoTitle: "{{ pp.name[pp.lang] }} — {{ t[pp.lang].common.tashkent }} | Alpha Plast"
+  seoDesc: "{{ pp.short[pp.lang] }}. {{ t[pp.lang].common.min_order }} 200 {{ t[pp.lang].calc.kg }}, {{ t[pp.lang].common.print_value }}."
+  ogImage: "{{ pp.images[0].src | replace('assets/', '') if pp.images.length else 'og-cover.jpg' }}"
+---
+{%- set cat = categories.items | find('slug', pp.category) -%}
+{%- set pf = pp | priceFrom(pricing, bestsellers.items) -%}
+{%- set pmin = pp.defaultSpec | minPcs(cfg.min_order_kg) -%}
+{%- set pw = pp.defaultSpec | bagWeight -%}
+{%- set own = bestsellers.items | where('product', pp.slug) -%}
+{%- set specText = (T.calc.bag_types[pp.type]) + ' ' + (pp.defaultSpec.width) + ('×' + pp.defaultSpec.height if pp.form != 'film' else ' ' + T.calc.cm) + ', ' + pp.defaultSpec.thickness + ' ' + T.calc.um + ', ' + T.calc.materials[pp.defaultSpec.material] -%}
+<section class="section page-head">
+  <div class="container">
+    {% set crumbs = [{ "name": T.nav.catalog, "url": L + "/catalog/" }, { "name": cat.name | tr(lang), "url": L + "/catalog/" + cat.slug + "/" }, { "name": pp.name | tr(lang), "url": L + "/product/" + pp.slug + "/" }] %}{% include "partials/breadcrumbs.njk" %}
+  </div>
+</section>
+<section class="section product">
+  <div class="container product-grid">
+    <div class="gallery" data-gallery>
+      <div class="glass photo main {% if pp.placeholder %}is-placeholder{% endif %}">
+        {% if pp.images.length %}<img src="{{ ('/' + pp.images[0].src) | url }}" alt="{{ pp.images[0].alt | tr(lang) }}" width="900" height="900" data-gallery-main>{% else %}<svg class="ph" viewBox="0 0 120 120" aria-hidden="true"><rect x="28" y="30" width="64" height="76" rx="8" fill="none" stroke="currentColor" stroke-width="3"/><path d="M44 30v-6a16 16 0 0 1 32 0v6" fill="none" stroke="currentColor" stroke-width="3"/></svg><span class="ph-note">{{ T.product.placeholder }}</span>{% endif %}
+      </div>
+      {% if pp.images.length > 1 %}<div class="thumbs">{% for im in pp.images %}<button type="button" class="glass photo thumb{% if loop.first %} is-active{% endif %}" data-thumb="{{ ('/' + im.src) | url }}" data-alt="{{ im.alt | tr(lang) }}"><img src="{{ ('/' + im.src) | url }}" alt="{{ im.alt | tr(lang) }}" loading="lazy" width="200" height="200"></button>{% endfor %}</div>{% endif %}
+      {% if pp.images.length %}<p class="muted small">{{ T.product.photo_note }}</p>{% endif %}
+    </div>
+    <div class="product-info">
+      <div class="badges">{% if pp.bestseller %}<span class="badge badge-red">{{ T.product.bestseller }}</span>{% endif %}{% if pp.food %}<span class="badge badge-ok">{{ T.product.food_yes }}</span>{% endif %}</div>
+      <h1>{{ pp.name | tr(lang) }}</h1>
+      <p class="lead">{{ pp.desc | tr(lang) }}</p>
+      <div class="glass price-box">
+        <div class="price big"><span class="from">{{ T.catalog.from }}</span> <b>{{ pf.price | num }}</b> <span class="unit">{{ T.catalog.per_pc if pp.unit != 'm' else T.calc.unit + '/m' }}</span>{% if cfg.demo_mode %}<span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</div>
+        <p class="muted small">{{ T.calc.exact_hint if pf.exact else T.calc.range_hint }}</p>
+        <dl class="result-rows">
+          <div><dt>{{ T.product.min_title }}</dt><dd>200 {{ T.calc.kg }} = <b>{{ pmin | num }}</b> {{ 'm' if pp.unit == 'm' else T.calc.pcs }}</dd></div>
+          <div><dt>{{ T.product.weight }}</dt><dd>{{ pw }} {{ T.calc.g }}</dd></div>
+          <div><dt>{{ T.product.lead }}</dt><dd>{{ T.product.lead_value }}</dd></div>
+        </dl>
+        <div class="price-actions">
+          <a class="btn btn-primary" href="{{ (L + '/calculator/') | url }}?{{ pp.defaultSpec | specQuery(pmin) }}" data-event="want_this">{{ T.cta.calc }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-glass" href="#order">{{ T.cta.order }}</a>
+        </div>
+      </div>
+      <dl class="specs specs-lg">
+        <div><dt>{{ T.product.material }}</dt><dd>{% for m in pp.materials %}{{ T.calc.materials[m] }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+        <div><dt>{{ T.product.load }}</dt><dd>{{ T.catalog.load_opts[pp.load] }}</dd></div>
+        <div><dt>{{ T.product.applications }}</dt><dd>{% for a in pp.applications %}{% set ap = applications | find('key', a) %}{{ ap.label | tr(lang) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+        <div><dt>{{ T.product.colors }}</dt><dd>{% if pp.print_max > 0 %}1–{{ pp.print_max }}{% else %}{{ T.calc.no_print }}{% endif %}</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>{{ T.product.sizes }}</h2>
+    <div class="glass table-wrap">
+      <table class="table sizes">
+        <thead><tr><th>{{ T.product.size }}</th>{% if pp.form != 'film' %}<th>{{ T.product.bottom }}</th>{% endif %}<th>{{ T.product.thickness }}</th><th>{{ T.product.weight }}</th><th>{{ T.product.min }}</th><th></th></tr></thead>
+        <tbody>
+        {% for s in pp.sizes %}{% for th in s.thickness %}
+          {% set spec = { "type": pp.type, "form": pp.form, "width": s.width, "height": s.height, "bottom": s.bottom, "length": s.length, "thickness": th, "material": pp.defaultSpec.material, "base": pp.defaultSpec.base, "colors": pp.defaultSpec.colors, "sides": 1 } %}
+          {% set sw = spec | bagWeight %}{% set sm = spec | minPcs(cfg.min_order_kg) %}
+          <tr><td>{% if pp.form == 'film' %}{{ s.width }} {{ T.calc.cm }} × 1 m{% else %}{{ s.width }}×{{ s.height }} {{ T.calc.cm }}{% endif %}</td>{% if pp.form != 'film' %}<td>{{ s.bottom or '—' }}</td>{% endif %}<td>{{ th }} {{ T.calc.um }}</td><td>{{ sw }} {{ T.calc.g }}</td><td>{{ sm | num }} {{ 'm' if pp.unit == 'm' else T.calc.pcs }}</td><td><a class="btn btn-glass btn-sm" href="{{ (L + '/calculator/') | url }}?{{ spec | specQuery(sm) }}">{{ T.cta.calc }}</a></td></tr>
+        {% endfor %}{% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container two-col">
+    <div class="glass tile">
+      <span class="tile-title">{{ T.product.grid }}</span>
+      {% if own.length %}
+        {% for b in own %}
+        <p class="muted small">{{ b.name | tr(lang) }}</p>
+        <table class="table tiers"><tbody>{% for t in b.tiers %}<tr><td>{{ T.bestsellers.from_qty }} {{ t.from | num }} {{ T.calc.pcs }}</td><td><b>{{ t.price | num }}</b> {{ T.bestsellers.per_pc }}{% if cfg.demo_mode %} <span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</td></tr>{% endfor %}</tbody></table>
+        <a class="btn btn-primary btn-sm" href="{{ (L + '/calculator/') | url }}?{{ b.spec | specQuery(b.tiers[0].from, b.slug) }}" data-event="want_this" data-bs="{{ b.slug }}">{{ T.cta.want }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+        {% endfor %}
+      {% else %}
+        <table class="table tiers"><tbody>
+        {% for mult in [1, 2, 5] %}{% set q = pmin * mult %}{% set qq = pp.defaultSpec | quote(q, pricing, []) %}<tr><td>{{ q | num }} {{ 'm' if pp.unit == 'm' else T.calc.pcs }}</td><td><b>{{ qq.low | num }} – {{ qq.high | num }}</b> {{ T.calc.unit }}{% if cfg.demo_mode %} <span class="demo-tag">{{ T.demo.badge }}</span>{% endif %}</td></tr>{% endfor %}
+        </tbody></table>
+      {% endif %}
+      <p class="muted small">{{ T.product.grid_hint }}</p>
+    </div>
+    <div class="glass tile">
+      <span class="tile-title">{{ T.product.colors }}</span>
+      <span class="tile-desc">{{ T.product.print_text }}</span>
+      <div class="swatches"><span class="sw sw-white" title="white"></span><span class="sw sw-clear" title="transparent"></span><span class="sw sw-red"></span><span class="sw sw-blue"></span><span class="sw sw-black"></span><span class="sw sw-yellow"></span><span class="sw sw-green"></span></div>
+      <span class="tile-desc muted">{{ T.product.material }}: {% for m in pp.materials %}{{ T.calc.materials[m] }}{% if not loop.last %}, {% endif %}{% endfor %}</span>
+    </div>
+  </div>
+</section>
+<section class="section" id="order">
+  <div class="container">
+    {% set formId = 'lead-product' %}{% set presetSpec = specText %}{% set presetProduct = pp.slug %}{% set formTitle = T.product.order %}{% set formSub = T.product.order_sub %}{% include "partials/lead-form.njk" %}
+  </div>
+</section>
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "Product", "name": pp.name | tr(lang), "description": pp.desc | tr(lang),
+  "image": (cfg.base_url + '/' + pp.images[0].src) if pp.images.length else (cfg.base_url + '/assets/og-cover.jpg'),
+  "brand": { "@type": "Brand", "name": company.brand }, "category": cat.name | tr(lang), "material": pp.defaultSpec.material,
+  "offers": { "@type": "Offer", "priceCurrency": "UZS", "price": pf.price, "priceSpecification": { "@type": "UnitPriceSpecification", "price": pf.price, "priceCurrency": "UZS", "unitText": "piece" }, "availability": "https://schema.org/InStock", "url": cfg.base_url + page.url, "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": pmin, "unitText": "piece" } }
+} | json | safe }}</script>

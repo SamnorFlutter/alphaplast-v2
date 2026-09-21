@@ -1,0 +1,36 @@
+---
+layout: base.njk
+---
+{%- set seoTitle = title -%}
+<section class="section page-head">
+  <div class="container narrow">
+    {% set crumbs = [{ "name": T.nav.blog, "url": L + "/blog/" }, { "name": title, "url": L + "/blog/" + slug + "/" }] %}{% include "partials/breadcrumbs.njk" %}
+    <p class="muted small">{{ T.blog.categories[category] }} · <time datetime="{{ page.date | dateIso }}">{{ page.date | dateHuman(lang) }}</time></p>
+    <h1>{{ title }}</h1>
+    <p class="sub">{{ description }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow">
+    {% if cover %}<div class="glass photo cover"><img src="{{ ('/' + cover) | url }}" alt="{{ title }}" width="900" height="900"></div>{% endif %}
+    <article class="glass prose">{{ content | safe }}</article>
+  </div>
+</section>
+{% if related and related.length %}
+<section class="section">
+  <div class="container">
+    <h2>{{ T.blog.related }}</h2>
+    <div class="grid grid-3 products">{% for slugR in related %}{% set p = products.items | find('slug', slugR) %}{% if p %}{% include "partials/product-card.njk" %}{% endif %}{% endfor %}</div>
+    <div class="glass cta-band">
+      <div><h2>{{ T.blog.calc_cta }}</h2><p class="muted">{{ T.hero.min_line }}</p></div>
+      <a class="btn btn-primary btn-lg" href="{{ (L + '/calculator/') | url }}">{{ T.cta.calc }} <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+{% endif %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "Article", "headline": title, "description": description, "inLanguage": lang,
+  "datePublished": page.date | dateIso, "dateModified": page.date | dateIso, "mainEntityOfPage": cfg.base_url + page.url,
+  "image": (cfg.base_url + '/' + cover) if cover else (cfg.base_url + '/assets/og-cover.jpg'),
+  "author": { "@type": "Organization", "name": company.brand }, "publisher": { "@type": "Organization", "name": company.brand, "logo": { "@type": "ImageObject", "url": cfg.base_url + "/assets/logo-square.png" } }
+} | json | safe }}</script>
