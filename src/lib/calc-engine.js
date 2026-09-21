@@ -36,10 +36,12 @@
   function round10(x) { return Math.round(x / 10) * 10; }
 
   var MATCH_KEYS = ["type", "width", "height", "bottom", "thickness", "material", "base", "colors", "sides"];
-  function matchBestseller(spec, qty, bestsellers) {
+  // A bestseller price applies from the 200 kg minimum of its spec; higher tiers kick in as qty passes tier.from.
+  function matchBestseller(spec, qty, bestsellers, minKg) {
     if (!bestsellers) return null;
     for (var i = 0; i < bestsellers.length; i++) {
       var b = bestsellers[i], ok = true;
+      if (b.active === false) continue;
       for (var k = 0; k < MATCH_KEYS.length; k++) {
         var key = MATCH_KEYS[k];
         var a = spec[key], c = b.spec[key];
@@ -50,6 +52,7 @@
       var tiers = b.tiers || [];
       var tier = null;
       for (var j = 0; j < tiers.length; j++) if (n(qty) >= tiers[j].from) tier = tiers[j];
+      if (!tier && tiers.length && n(qty) >= minPcs(b.spec, minKg || 200)) tier = tiers[0];
       if (tier) return { bestseller: b, tier: tier };
     }
     return null;
@@ -72,7 +75,7 @@
     var setup = colors * sides * pricing.setup_per_color;
     var perPc = (base + print) * (1 + pricing.margin_pct) + (qty > 0 ? setup / qty : 0);
     if (spec.urgent) perPc *= pricing.urgent_mult;
-    var m = matchBestseller(spec, qty, bestsellers);
+    var m = matchBestseller(spec, qty, bestsellers, pricing.min_order_kg);
     if (m) { res.exact = m.tier.price; res.bestseller = m.bestseller.slug; }
     else { res.low = round10(perPc * pricing.range_low_mult); res.high = round10(perPc * pricing.range_high_mult); }
     var unit = res.exact !== undefined ? res.exact : (res.low + res.high) / 2;
