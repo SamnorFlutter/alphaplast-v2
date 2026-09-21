@@ -6,28 +6,28 @@
       "name": { "ru": "ПВД с вырубной ручкой 40×50, белый, 2 цвета", "uz": "Kesilgan dastali PVD 40×50, oq, 2 rang" },
       "image": "assets/product-05.jpg",
       "spec": { "type": "pvd", "width": 40, "height": 50, "bottom": 0, "thickness": 60, "material": "PVD", "base": "white", "colors": 2, "sides": 1 },
-      "tiers": [ { "from": 9000, "price": 1090 }, { "from": 20000, "price": 1040 }, { "from": 50000, "price": 990 } ]
+      "tiers": [ { "from": 9100, "price": 1090 }, { "from": 20000, "price": 1040 }, { "from": 50000, "price": 990 } ]
     },
     {
       "slug": "loop-40x50-1c", "product": "pvd-loop", "order": 2, "active": true,
       "name": { "ru": "Петлевая ручка 40×50, белый, 1 цвет", "uz": "Ilmoqli dasta 40×50, oq, 1 rang" },
       "image": "assets/product-skechers.jpg",
       "spec": { "type": "loop", "width": 40, "height": 50, "bottom": 0, "thickness": 80, "material": "PVD", "base": "white", "colors": 1, "sides": 1 },
-      "tiers": [ { "from": 6700, "price": 1300 }, { "from": 15000, "price": 1250 } ]
+      "tiers": [ { "from": 6800, "price": 1300 }, { "from": 15000, "price": 1250 } ]
     },
     {
       "slug": "maika-30x55-1c", "product": "maika-pnd", "order": 3, "active": true,
       "name": { "ru": "Майка 30×55, белая, 1 цвет", "uz": "Mayka 30×55, oq, 1 rang" },
       "image": "assets/product-maika.jpg",
       "spec": { "type": "maika", "width": 30, "height": 55, "bottom": 0, "thickness": 18, "material": "PND", "base": "white", "colors": 1, "sides": 1 },
-      "tiers": [ { "from": 35000, "price": 290 }, { "from": 100000, "price": 270 } ]
+      "tiers": [ { "from": 35500, "price": 290 }, { "from": 100000, "price": 270 } ]
     },
     {
       "slug": "courier-30x40-2c", "product": "courier-flap", "order": 4, "active": true,
       "name": { "ru": "Курьерский 30×40 с клапаном, белый, 2 цвета", "uz": "Klapanli kuryer 30×40, oq, 2 rang" },
       "image": "assets/product-03.jpg",
       "spec": { "type": "courier", "width": 30, "height": 40, "bottom": 0, "thickness": 60, "material": "PVD", "base": "white", "colors": 2, "sides": 1 },
-      "tiers": [ { "from": 15000, "price": 690 }, { "from": 40000, "price": 650 } ]
+      "tiers": [ { "from": 15100, "price": 690 }, { "from": 40000, "price": 650 } ]
     }
   ]
 }
